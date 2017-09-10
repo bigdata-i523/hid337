@@ -13,6 +13,8 @@
 ##### 09/04/17 - 09/10/17 
      - Read Introduction (3.1)
      - Watched video on Paper writing by Simon Peyton Jones
+     - Learning about LaTex and jabref
+     - Evaluating whether to install or use online Sharelatex
 
 ## Practice
 
@@ -25,5 +27,5 @@
 
 ##### 09/04/17 - 09/10/17 
      - Worked with Anil(HID333) to decide Paper 1 topic
-     - Learning about LaTex and jabref
-     - Evaluating whether to install or use online Sharelatex
+     
+     
