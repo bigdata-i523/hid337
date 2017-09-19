@@ -18,7 +18,7 @@ paper1:
    - 333
    - 337
    title: Big Data and Artificial Intelligence solutions for In Home, Community and Territory Security
-   abstract: Analyze audio&video data (captured continuously using voice&video sensors) and then provide analytics to homeowners/authorities/agencies as needed
+   abstract: Analyze audio, video data (captured continuously using voice, video sensors) and then provide analytics to homeowners/authorities/agencies as needed. Gregor - Improve abstract.
    url: https://github.com/bigdata-i523/hid337/paper1/paper1.pdf
    type: latex
    status: in progress
