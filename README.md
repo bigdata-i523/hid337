@@ -12,7 +12,7 @@ owner:
 ```
 paper1:
    author: 
-   - Anil Ravi	
+   - Anil Ravi  
    - Ashok Reddy Singam
    hid:
    - 333
@@ -29,7 +29,7 @@ paper1:
 ```
 paper2:
    author: 
-   - Anil Ravi	
+   - Anil Ravi  
    - Ashok Reddy Singam
    hid:
    - 333
@@ -46,7 +46,6 @@ paper2:
 ```
 project:
    type: project
-   type: report
    author: 
    - Ashok Reddy Singam
    pid:
