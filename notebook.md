@@ -28,5 +28,6 @@
 * 09/04/17 Worked with Anil(HID333) to decide Paper 1 topic
 * 09/13/17 Worked with Anil(HID337) to decide Paper 2 topic
 * 09/22/17 Fixed paper1 folder entries at github
+* 09/24/17 Working on paper1:Introduction section
 
 
