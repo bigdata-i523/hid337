@@ -19,7 +19,8 @@ paper1:
    - 337
    title: Big Data and Artificial Intelligence solutions for In Home, Community and Territory Security
    abstract: Smart Security systems equipped with Video and Audio sensors produce huge amounts of unstructured data continuously. 
-This paper talks about highlevel architecture of an intelligent security system with video surveillance, audio monitoring/recording, video and Audio analytics, alerting homeowners/authorities/agencies as needed.
+             This paper talks about highlevel architecture of an intelligent security system with video surveillance, 
+             audio monitoring/recording, video and Audio analytics, alerting homeowners/authorities/agencies as needed.
    url: https://github.com/bigdata-i523/hid337/paper1/report.tex
    type: latex
    status: in progress
