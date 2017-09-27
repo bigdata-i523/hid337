@@ -1,15 +1,17 @@
 # Logistic
 
 * 08/21/17 - 08/27/17  Read Class Syllabus
-* 08/22/17  Completed Bio Assignment
-* 08/27/17  Created github,futuresystems and chameloncloud accounts
+* 08/22/17 Completed Bio Assignment
+* 08/27/17 Created github,futuresystems and chameloncloud accounts
 * 08/28/17 - 09/01/17  Learnt about Piazaa folders usage
-* 09/03/17  Read Summary of Online Meeting of Aug 31
+* 09/03/17 Read Summary of Online Meeting of Aug 31
 * 09/04/17 - 09/10/17 Learning about LaTex and jabref
 * 09/15/17 Attended 4to5pm Zoom meeting with Saber
 * 09/22/17 Fixed Readme.md entries
 * 09/23/17 Working on to fix notebook.md format
-* 09/23/17 Watched 09/18/17 Meeting notes video https://drive.google.com/open?id=0B8936_ytjfjmcXNCdTkyNllTeVU to understand sharelatex and jabref
+* 09/23/17 Watched 09/18/17 Meeting notes video https://drive.google.com/open?id=0B8936_ytjfjmcXNCdTkyNllTeVU 
+           to understand sharelatex and jabref
+* 09/26/17 Added Meetings and Location sections to Notebook
 
 # Theory
 
