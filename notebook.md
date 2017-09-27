@@ -30,4 +30,6 @@
 * 09/22/17 Fixed paper1 folder entries at github
 * 09/24/17 Working on paper1:Introduction section
 
-
+# Meetings
+ 
+* 09/25/2017 Meeting: Attended 7-8pm zoom meeting
