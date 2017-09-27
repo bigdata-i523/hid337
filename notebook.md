@@ -33,3 +33,9 @@
 # Meetings
  
 * 09/25/2017 Attended 7-8pm zoom meeting
+
+# Location
+
+* Address: 366 Floral View, Irvine, CA, 92618
+* Latitude: 33.680444
+* Longitude: -117.745506
