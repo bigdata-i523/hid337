@@ -32,4 +32,4 @@
 
 # Meetings
  
-* 09/25/2017 Meeting: Attended 7-8pm zoom meeting
+* 09/25/2017 Attended 7-8pm zoom meeting
