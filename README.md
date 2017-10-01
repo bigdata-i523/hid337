@@ -17,7 +17,7 @@ paper1:
    hid:
    - 337
    - 333
-   title: Big Data and Artificial Intelligence solutions for In Home, Community and Territory Security
+   title: Big Data and Artificial Intelligence Solutions for in Home, Community and Territory Security
    abstract: > 
             Smart Security systems equipped with Video and Audio sensors produce huge amounts of unstructured data continuously. 
             This paper talks about highlevel architecture of an intelligent security system with video surveillance, 
