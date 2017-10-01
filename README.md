@@ -22,7 +22,7 @@ paper1:
             Smart Security systems equipped with Video and Audio sensors produce huge amounts of unstructured data continuously. 
             This paper talks about highlevel architecture of an intelligent security system with video surveillance, 
             audio monitoring/recording, video and Audio analytics, alerting homeowners/authorities/agencies as needed.
-   url: https://github.com/bigdata-i523/hid337/paper1/report.tex
+   url: https://github.com/bigdata-i523/hid337/paper1/report.pdf
    type: latex
    status: in progress
    chapter: Security
