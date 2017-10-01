@@ -12,7 +12,7 @@ owner:
 ```
 paper1:
    author: 
-   - Ashok Reddy Singam  
+   - Ashok Reddy Singam
    - Anil Ravi
    hid:
    - 337
@@ -25,6 +25,7 @@ paper1:
    url: https://github.com/bigdata-i523/hid337/paper1/report.tex
    type: latex
    status: in progress
+   chapter: Security
 ```
    
 # Paper 2
