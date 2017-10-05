@@ -79,6 +79,21 @@ Audio monitoring in addition to video helps false alarms by providing secondary 
 \section{Big Data Infrastructure}
 Big Data applications requires huge storage and computing power.Big Data organizes and extracts the valued information from the large volumes, variety forms and frequently changing data sets collected from multiple, and autonomous sources 
 in the minimal possible time, using several mathematical and machine learning techniques.
+
+A big data solution typically comprises these logical layers:
+ \begin{itemize}
+    \item Big data sources: Text,Audio,Video etc
+    \item Data massaging and store layer: This layer is responsible for acquiring data from the data sources and, if necessary, converting it to a format that suits how the data is to be analyzed. 
+    Ex:Hadoop Distributed File System (HDFS) store
+    \item Analysis layer:The analysis layer reads the data digested by the data massaging and store layer.For example, this layer offers tools like NoSQL programming, and Map Reduce for data intensive computing, domain specific statistical models, machine learning techniques etc
+    \item Consumption layer:This layer consumes the output provided by the analysis layer. The consumers can be visualization applications, human beings, business processes, or services
+ \end{itemize}
+ 
+\begin{figure}
+\includegraphics[height=8in, width=7.5in]{images/BigDataArchitecture.pdf}
+\caption{Typical Big Data Architecture}
+\end{figure}
+ 
 \section{Home Security}
 
 \section{Community/Regional Security}
