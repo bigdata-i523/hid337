@@ -90,11 +90,26 @@ A big data solution typically comprises these logical layers:
  \end{itemize}
  
 \begin{figure}
-\includegraphics[height=8in, width=7.5in]{images/BigDataArchitecture.pdf}
+\includegraphics[height=7.5in, width=7.5in]{images/BigDataArchitecture.pdf}
 \caption{Typical Big Data Architecture}
 \end{figure}
  
-\section{Home Security}
+\section{Drones and AI for Security}
+Drones(Unmanned Aerial Vehicles) provide the ideal solution to the problems and limitations faced by Contemporary surveillance methods. Unlike a mounted camera, which is fixed on a designated area, drones are mobile and should be able to provide 360 degrees field view.Drones equipped with AI systems should be able to provide real-time insights for better decision making.Drone surveillance provides a lot of other key advantages like
+
+\begin{itemize}
+ \item Drone planes can enter narrow and confined spaces
+ \item produce minimal noise
+ \item  can be equipped with night vision cameras and thermal sensors
+\end{itemize}
+\subsection{Proposed Design for Drone Security System}
+With the help of NVIDIA's Jetson TX2 platform it is possible to power drones with good Artificial Intelligence(AI).Drones with the TX2, FlytOS RealTime Object Detection solution can operate two cameras simultaneously.The Jetson platform making AI at the edge of the network, rather than in the cloud. Pre-trained model of a region  based convolutional neural network (R-CNN) deployed on the Nvidia  TX2  helps in recognizing and localizing objects like persons,cars, bikes etc.
+  \begin{itemize}
+    \item Micro Drone
+    \item NVIDIA's Jetson TX2 platform 
+    \item FlytOS RealTime
+    \item NVIDIA TensorRT or Google's Tensor flow - high performance deep learning library
+ \end{itemize}
 
 \section{Community/Regional Security}
 
