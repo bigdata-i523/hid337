@@ -42,7 +42,7 @@ Having an intelligent ear-and-eye monitoring system at the home to constantly ob
 
 Anti-social activities became the most significant threat to national security because of their potential to bring massive damage to our homes, public infrastructure, economy, and people. The existing systems and methods haven't reached the level of sophistication to be able to consolidate the relevant data from variety of sources and demographics. Video surveillance of residential, commercial, military, and other restricted locations have been in practice since many years using various available technologies. Depending on the level of security, the data has been processed by data mining and/or big data analytics to take decisions by various personal, agencies and governments. However, the limitations of data collection, data mining and adoption of intelligence led to ineffective systems which are not predictive as they should be.The present security systems used by households are static cameras used at a  fixed location inside or outside the house. They are connected to network and provide alerts when any event occurred. However, they are not intelligent enough to understand the context, recognizing the people faces, and aware of family members behaviors, house needs etc.
 
-With the advent of new technologies in Big Data and Artificial Intelligence fields, it possible to integrate the video, audio and social media data of targeted regions (homes, public places and extended areas) for security analysis. Such systems can use advanced statistical methods, classification algorithms and machine learning algorithms to predict and prevent the threats based on the severity probability.
+With the advent of new technologies in \textit{Big Data} and \textit{Artificial Intelligence} fields, it possible to integrate the video, audio and social media data of targeted regions (homes, public places and extended areas) for security analysis. Such systems can use advanced statistical methods, classification algorithms and machine learning algorithms to predict and prevent the threats based on the severity probability.
 
 \end{abstract}
 
@@ -51,19 +51,20 @@ With the advent of new technologies in Big Data and Artificial Intelligence fiel
 \maketitle
 
 \section{Introduction}
-As per the book "Intelligence and Security Informatics"\cite{Kantor2005}, it is widely believed that information technology will play an indispensable role in making the world safer by supporting intelligence and knowledge discovery through collecting, processing, analyzing, and utilizing terrorism- and crime-related data. Social network analysis(SNA)has been widely explored to support intelligence and law enforcement agencies in investigating the terrorist and criminal social networks. It is valuable in identifying terrorists, suspect subgroups, and their communication patterns.
+As per the book "Intelligence and Security Informatics"\cite{Kantor2005}, it is widely believed that information technology will play an indispensable role in making the world safer by supporting intelligence and knowledge discovery through collecting, processing, analyzing, and utilizing terrorism and crime-related data. Social network analysis(SNA)has been widely explored to support intelligence and law enforcement agencies in investigating the terrorist and criminal social networks. It is valuable in identifying terrorists, suspect subgroups, and their communication patterns.
 
 However, in the present world, the systems are disparately processing the data and the decisions/conclusions are being made without considering from multiple dimensions. The large corporations, nations, and intelligence agencies are using their individual systems but not taking integrated approach to solve the problems in their entirety. This could be due to political and economic interests of individuals, corporations and nations.
 
 Analyzing the individual human behaviors, interactions, transactions, and actions is the key element in identifying the potential threat in advance. Generating and analyzing such data from individual homes and extending the concept to larger groups is the idea behind this research.
 
-It is quite feasible to collect the data from individual homes and roll up to the communities, cities and then to the nations across the world. Since this involves with the personal data from people directly, it is required to follow privacy-preservation policies and methods enforced by local/national governments and law enforcement agencies. By accessing the lowest level of data of individuals video, voice, social media and other business transactional data would allow to characterize, analyze and assess the people behaviors and motives which can be maintained and processed as needed by Big Data systems. These systems are very complex in nature due to the variety, volume and velocity of the data, where the Big Data technologies will play a significant role in realizing them. In addition to data collection and mining, if artificial intelligence is applied to analyze and evaluate the data then the crime prediction and prevention would be feasible.
+It is quite feasible to collect the data from individual homes and roll up to the communities, cities and then to the nations across the world. Since this involves with the personal data from people directly, it is required to follow privacy-preservation policies and methods enforced by local/national governments and law enforcement agencies. By accessing the lowest level of data of individuals video, voice, social media and other business transactional data would allow to characterize, analyze and assess the people behaviors and motives which can be maintained and processed as needed by Big Data systems. These systems are very complex in nature due to the variety, volume and velocity of the data, where the Big Data technologies will play a significant role in realizing them. In addition to data collection and mining, if \textit{Artificial Intelligence} is applied to analyze and evaluate the data then the crime prediction and prevention would be feasible.
 
 In order to realize such systems, one would need several technologies and sub-systems in various layers to effectively collect, transfer, mining, learning and analyze the data. In the following sections, it has been described some of the technologies/sub-systems that can be used to achieve the objectives of proposed conceptual model.
 The discussion here consists of reviewing the available papers/systems related to security informatics and understanding the technologies and methods used. The gaps perceived in the review are attempted to solve by proposing a new concept. The remainder of this discussion is organized as follows:
 \begin{itemize}
-  \item Section 2 provides a set of sub-systems and use of them in the proposed framework. 
-  \item Section 3 gives an overview community/city security using conceptual model. \item Finally, section 4 concludes this proposal.
+  \item Section 2 provides a set of sub-systems and their usage in the proposed framework. 
+  \item Section 3 gives an overview community/city security using conceptual model. 
+  \item Finally, Section 4 concludes this proposal.
 \end{itemize}
 
 \subsection{Data Collection}
@@ -93,11 +94,6 @@ This will establish a known context of complete information of individuals resid
 
 This conceptual model can be realized with available technologies and can be architected such that it will become a basic building block for scalable system.
 
-\begin{figure}
-\includegraphics[height=7.5in, width=7.5in]{images/BigDataArchitecture.pdf}
-\caption{Typical Big Data Architecture}
-\end{figure}
-
 \subsection{Dual Micro-Drones with Video and Audio}
 The prevailing drone technology is reaching higher levels of sophistication allowing newer concepts to be realized in surveillance applications\cite{Labs2016}. In this proposed concept a micro-drone with integrated video, voice and environmental sensors (temperature, humidity, and accelerometers) can be designed along with learning algorithms to add intelligence. In the basic system, there will be two micro-drones to cover both in-side and out-side of the house (can consider adding more depending on the size of the house/facility) monitoring activities all the time. The drone hardware and software detects and recognize all moving objects through deep learning algorithms such as Regional Convolution Neural Networks (R-CNN). Li Wand and Dennis Sng\cite{Wang2015} have reviewed the recent progress of deep learning in object detection, object tracking, face recognition, image classification and scene labeling. The deep models have significantly improved the performance in these areas, often approaching human capabilities. The reasons for this success are two-folded. First, big training data are becoming increasingly available (e.g. data streams from a multitude of sensors) for building up large deep neural networks. Second, new advanced hardware (e.g. Nvidia GPUs) has largely reduced the training time for deep networks. 
 
@@ -109,15 +105,15 @@ Since micro-drones are autonomous with self-maneuvering and self-diagnostics cap
 The technologies available to realize such a micro-drone consists of: 
 \begin{itemize}
   \item Autonomous octo/quadcopter 
-  \item High resolution built-in 360 degree video cameras \item Finally, section 4 concludes this proposal
+  \item High resolution built-in 360 degree video cameras 
   \item High speed network links
   \item High speed GPUs
   \item Environment sensors
   \item Software with machine learning algorithms for various capabilities discussed in previous sections
 \end{itemize}
 
-\subsection{Learning Algorithms}
-The two critical machine learning algorithms needed to realize the proposed concept are for the face and voice recognition. Deep learning models are potential candidates for these two tasks. Deep learning architectures have different variants such as Deep Belief Networks (DBN)\cite{Hinton2009}, Convolutional Neural Networks (CNN)\cite{NIPS2012_4824}, Deep Boltzmann Machines (DBM)\cite{pmlr-v9-salakhutdinov10a} and Stacked Denoising Auto-Encoders (SDAE)\cite{Vincent2010}, etc. The most attractive model is Convolutional Neural Networks which have achieved very promising results in both computer vision and speech recognition.
+\subsection{Machine Learning Algorithms}
+The two critical machine learning algorithms needed to realize the proposed concept are for the face and voice recognition. Deep learning models are potential candidates for these two tasks. Deep learning architectures have different variants such as Deep Belief Networks (DBN)\cite{Hinton2009}, Convolutional Neural Networks (CNN)\cite{NIPS2012_4824}, Deep Boltzmann Machines (DBM)\cite{pmlr-v9-salakhutdinov10a} and Stacked Denoising Auto-Encoders (SDAE)\cite{Vincent2010}, etc. The most attractive model is (CNN) which have achieved very promising results in both computer vision and speech recognition.The ability of multilayer back-propagation networks to learn complex, high-dimensional, non-linear mappings from large collections of examples makes CNN\cite{LeCun1998} obvious candidates for image and speech recognition tasks. 
 
 \subsection{Predictive Analysis }
 The ability to estimate the occurrence of future events using expertise, observation and intuition is critical to the human decision-making process. From a biophysical perspective, there is strong evidence that the neocortex provides a basic framework for memory and prediction in which human intelligence emerges as a process of pattern storage, recognition and projection rooted in our experience of the world and driven by perception and creativity. There is increasing consensus among cognitive psychologists that human decision making can be seen as a situation-action matching process which is context-bound and driven by experiential knowledge and intuition.
