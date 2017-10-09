@@ -31,8 +31,8 @@
 * 09/13/17 Worked with Anil(HID337) to decide Paper 2 topic
 * 09/22/17 Fixed paper1 folder entries at github
 * 09/24/17 Working on paper1:Introduction section
-* 09/30/17 - 10/09/17 Working on paper1
-* 10/09/17 Submitted paper1
+* 09/30/17 - 10/09/17 Working on paper1.Studied articles.
+* 10/09/17 Submitted paper1. Fixed minor issues like having space before \cite.
 
 # Meetings
  
