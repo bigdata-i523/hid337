@@ -32,6 +32,7 @@
 * 09/22/17 Fixed paper1 folder entries at github
 * 09/24/17 Working on paper1:Introduction section
 * 09/30/17 - 10/09/17 Working on paper1
+* 10/09/17 Submitted paper1
 
 # Meetings
  
