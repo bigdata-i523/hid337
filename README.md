@@ -24,7 +24,7 @@ paper1:
             audio monitoring/recording, video and Audio analytics, alerting homeowners/authorities/agencies as needed.
    url: https://github.com/bigdata-i523/hid337/paper1/report.pdf
    type: latex
-   status: 60%
+   status: 99%
    chapter: Security
 ```
    
