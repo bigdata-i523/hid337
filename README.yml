@@ -4,13 +4,12 @@ owner:
     name: Ashok Reddy Singam
     url: https://github.com/bigdata-i523/hid337
 paper1:
-    abstract: 'Smart Security systems equipped with Video and Audio sensors produce
+    abstract: >
+        Smart Security systems equipped with Video and Audio sensors produce
         huge amounts of unstructured data continuously.  This paper talks about highlevel
         architecture of an intelligent security system with video surveillance,  audio
         monitoring/recording, video and Audio analytics, alerting homeowners/authorities/agencies
         as needed.
-
-        '
     author:
         - Ashok Reddy Singam
         - Anil Ravi
@@ -19,18 +18,18 @@ paper1:
         - 337
         - 333
     status: 100%
-    title: Big Data and Artificial Intelligence Solutions for in Home, Community and
+    title: >
+        Big Data and Artificial Intelligence Solutions for in Home, Community and
         Territory Security
     type: latex
     url: https://github.com/bigdata-i523/hid337/paper1/report.pdf
 paper2:
-    abstract: 'Automatic speech recognition (ASR) and natural language processing
+    abstract: >
+        Automatic speech recognition (ASR) and natural language processing
         (NLP) based intelligent system can be  used in several human machine interface
         applications both in consumer and industrial sector.  This paper describes
         the architecture, building blocks, performance and applications for such system
         that would use   pre-developed ASR and NLP APIs.
-
-        '
     author:
         - Ashok Reddy Singam
         - Anil Ravi
