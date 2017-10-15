@@ -46,7 +46,7 @@ paper2:
          pre-developed ASR and NLP APIs.
    url: https://github.com/bigdata-i523/hid337/paper2/report.tex
    type: latex
-   status: Not started
+   status: In Progress
 ```
 
 # Project 
