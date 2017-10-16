@@ -32,7 +32,8 @@
 * 09/22/17 Fixed paper1 folder entries at github
 * 09/24/17 Working on paper1:Introduction section
 * 09/30/17 - 10/09/17 Working on paper1.Studied articles
-* 10/09/17 Submitted paper1. Fixed minor issues like having space before \cite.
+* 10/09/17 Submitted paper1. Fixed minor issues like having space before \cite
+* 10/12/17 Wrote paper1 review 
 * 10/15/17 Working on Paper2.
 
 # Meetings
