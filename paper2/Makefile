@@ -1,6 +1,17 @@
 FILE=report
 FLAGS=-interaction nonstopmode -halt-on-error -file-line-error 
 REVIEW=review
+DEFAULT=$(FILE)
+
+UNAME := $(shell uname)
+
+ifeq ($(UNAME), Darwin)
+OPEN=open
+endif
+ifeq ($(UNAME), Linux)
+OPEN=xdg-open
+endif
+
 
 all:
 	pdflatex ${FLAGS} ${FILE}
@@ -8,9 +19,10 @@ all:
 	pdflatex ${FLAGS} ${FILE}
 	pdflatex ${FLAGS} ${FILE}
 
-review-create:
-	cp -i report.tex review.tex
-	make -f Makefile review-fetch
+#review-create:
+#	cp -i report.tex review.tex
+#	make -f Makefile review-fetch
+
 
 insert:
 	rm  -f bibtex-error.tex
@@ -20,10 +32,21 @@ insert:
 	mv tmp.tex ${REVIEW}.tex
 	tail ${REVIEW}.tex
 
-review-fetch:
-	wget -q https://raw.githubusercontent.com/bigdata-i523/sample-hid000/master/paper1/issues.tex
+#review-fetch:
+#	wget -q https://raw.githubusercontent.com/bigdata-i523/sample-hid000/master/paper1/issues.tex
 
 review:
+	rm -rf ~/tmp-review
+	mkdir -p ~/tmp-review
+	cp -r * ~/tmp-review
+	cp report.tex ~/tmp-review/review.tex
+	cd ~/tmp-review; make -f Makefile insert
+	cd ~/tmp-review; make -f Makefile review-pdf
+	cp ~/tmp-review/review.pdf review-local.pdf
+	open ${REVIEW}-local.pdf
+	rm -rf ~/tmp-review
+
+review-pdf:
 	pdflatex ${FLAGS} ${REVIEW}
 	bibtex ${REVIEW}
 	make -f Makefile insert
@@ -31,7 +54,6 @@ review:
 	bibtex ${REVIEW}
 	pdflatex ${FLAGS} ${REVIEW}
 	pdflatex ${FLAGS} ${REVIEW}
-	open ${REVIEW}.pdf
 	bibtex -terse ${REVIEW} | sed -e 's/^/\* [ ] /' 
 
 pack:
@@ -51,7 +73,7 @@ clean:
 	rm -rf _region_.*
 
 view:
-	open ${FILE}.pdf
+	$(OPEN) ${FILE}.pdf
 
 # all dependce tracking taking care of by Latexmk
 fast:
@@ -69,20 +91,24 @@ up:
 	git commit -a
 	git push
 
-publish:
-	@echo "==============================================================="
-	@echo "publish ${FILE}.pdf -> http://cyberaide.github.io/papers/${FILE}.pdf" 
-	@echo "==============================================================="
-	cp ${FILE}.pdf /tmp
-	cd ..; git checkout gh-pages
-	cp /tmp/${FILE}.pdf .
-	git add ${FILE}.pdf
-	git commit -m "adding new version of ${FILE}.pdf" ${FILE}.pdf
-	git push
-	cd bigdata
-	git checkout master
+#publish:
+#	@echo "==============================================================="
+#	@echo "publish ${FILE}.pdf -> http://cyberaide.github.io/papers/${FILE}.pdf" 
+#	@echo "==============================================================="
+#	cp ${FILE}.pdf /tmp
+#	cd ..; git checkout gh-pages
+#	cp /tmp/${FILE}.pdf .
+#	git add ${FILE}.pdf
+#	git commit -m "adding new version of ${FILE}.pdf" ${FILE}.pdf
+#	git push
+#	cd bigdata
+#	git checkout master
 
 
 bib-extract:
 	echo "EXTRACTING ALL USED CITATIONS INTO A BIB FILE"
 	bibtool -x ${FILE}.aux -o ${FILE}.bib
+
+skim:
+	echo $(DEFAULT)
+	open -a /Applications/skim.app $(DEFAULT).pdf
