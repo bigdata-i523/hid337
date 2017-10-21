@@ -1,0 +1,143 @@
+\documentclass[sigconf]{acmart}
+
+\input{format/i523}
+
+\begin{document}
+\title{Big Data for Edge Computing}
+
+
+\author{Ben Trovato}
+\orcid{1234-5678-9012}
+\affiliation{%
+  \institution{Institute for Clarity in Documentation}
+  \streetaddress{P.O. Box 1212}
+  \city{Dublin} 
+  \state{Ohio} 
+  \postcode{43017-6221}
+}
+\email{trovato@corporation.com}
+
+\author{G.K.M. Tobin}
+\affiliation{%
+  \institution{Institute for Clarity in Documentation}
+  \streetaddress{P.O. Box 1212}
+  \city{Dublin} 
+  \state{Ohio} 
+  \postcode{43017-6221}
+}
+\email{webmaster@marysville-ohio.com}
+
+\author{Gregor von Laszewski}
+\affiliation{%
+  \institution{Indiana University}
+  \streetaddress{Smith Research Center}
+  \city{Bloomington} 
+  \state{IN} 
+  \postcode{47408}
+  \country{USA}}
+\email{laszewski@gmail.com}
+
+
+% The default list of authors is too long for headers}
+\renewcommand{\shortauthors}{G. v. Laszewski}
+
+
+\begin{abstract}
+This paper provides a sample of a \LaTeX\ document which conforms,
+somewhat loosely, to the formatting guidelines for
+ACM SIG Proceedings.
+\end{abstract}
+
+\keywords{Big Data, Edge Computing i523}
+
+
+\maketitle
+
+
+
+\section{Introduction}
+
+Put here an introduction about your topic. 
+We just need one sample refernce so the paper compiles in LaTeX so we
+put it here \cite{editor00}.
+
+\section{figures}
+
+In Figure \ref{f:fly} we show a fly. Please note that because we use
+just columwidth that the size of the figure will change to the
+columnwidth of the paper once we change the layout to final. CHnaging
+the layout to final should not be done by you. All figures will be
+listed at the end.
+
+\begin{figure}[!ht]
+  \centering\includegraphics[width=\columnwidth]{images/fly.pdf}
+  \caption{Example caption}\label{f:fly}
+\end{figure}
+
+When copying the example, please do not check in the images from the
+examples into your images directory as you will not need them for your
+paper. Instead use images that you like to include. If you do not have
+any images, do not dreate the images folder.
+
+\section{Tables}
+
+In case you need to create tables, you can do this with online tools
+(if you do not mind sharing your data) such as
+\url{https://www.tablesgenerator.com/} or other such tools (please
+google for them). They even allow you to manage tables as CSV.
+
+or generate them by hand while using the provided template in Table\ref{t:mytable}. Not ethat
+the caption is before the tabular environment.
+
+\begin{table}[htb]
+\centering
+\caption{My caption}
+\label{t:mytabble}
+\begin{tabular}{lll}
+1 & 2 & 3 \\
+\hline
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{tabular}
+\end{table}
+
+\section{Long example}
+
+If you like to see a more elaborate example, please look at
+report-long.tex. 
+
+\section{Conclusion}
+
+Put here an conclusion. Conlcusions and abstracts must not have any
+citations in the section.
+
+
+\begin{acks}
+
+  The authors would like to thank Dr. Gregor von Laszewski for his
+  support and suggestions to write this paper.
+
+\end{acks}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{report} 
+
+\appendix
+
+We include an appendix with common issues that we see when students
+submit papers. One particular important issue is not to use the
+underscore in bibtex labels. Sharelatex allows this, but the
+proceedings script we have does not allow this.
+
+When you submit the paper you need to address each of the items in the
+issues.tex file and verify that you have done them. Please do this
+only at the end once you have finished writing the paper. To d this
+cange TODO with DONE. However if you check something on with DONE, but
+we find you actually have not executed it correcty, you will receive
+point deductions. Thus it is important to do this correctly and not
+just 5 minutes before the deadline. It is better to do a late
+submission than doing the check in haste. 
+
+\input{issues}
+
+\end{document}
