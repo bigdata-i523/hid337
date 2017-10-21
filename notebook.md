@@ -36,6 +36,7 @@
 * 10/09/17 Submitted paper1. Fixed minor issues like having space before \cite
 * 10/12/17 Wrote paper1 review 
 * 10/15/17 Working on Paper2.
+* 10/20/17 Fixed paper1 issues as per TA's comments
 
 # Meetings
  
