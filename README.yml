@@ -27,9 +27,9 @@ paper2:
     abstract: >
         Automatic speech recognition (ASR) and natural language processing
         (NLP) based intelligent system can be  used in several human machine interface
-        applications both in consumer and industrial sector.  This paper describes
+        applications both in consumer and industrial sector. This paper describes
         the architecture, building blocks, performance and applications for such system
-        that would use   pre-developed ASR and NLP APIs.
+        that would use pre-developed ASR and NLP APIs.
     author:
         - Ashok Reddy Singam
         - Anil Ravi
