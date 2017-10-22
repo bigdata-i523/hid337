@@ -4,25 +4,23 @@ owner:
     name: Ashok Reddy Singam
     url: https://github.com/bigdata-i523/hid337
 paper1:
-    abstract: >
-        Smart Security systems equipped with Video and Audio sensors produce
-        huge amounts of unstructured data continuously.  This paper talks about highlevel
-        architecture of an intelligent security system with video surveillance,  audio
-        monitoring/recording, video and Audio analytics, alerting homeowners/authorities/agencies
-        as needed.
     author:
         - Ashok Reddy Singam
         - Anil Ravi
-    chapter: Security
     hid:
         - 337
         - 333
-    status: 100%
-    title: >
-        Big Data and Artificial Intelligence Solutions for in Home, Community and
-        Territory Security
+    title: Big Data and Artificial Intelligence solutions for In Home, Community and Territory Security
+    abstract: > 
+        Smart Security systems equipped with Video and Audio sensors produce huge
+        amounts of unstructured data continuously. This paper talks about highlevel
+        architecture of an intelligent security system with video surveillance, 
+        audio monitoring/recording, video and Audio analytics, alerting
+        homeowners/authorities/agencies as needed.
+    url: https://github.com/bigdata-i523/hid337/paper1/
     type: latex
-    url: https://github.com/bigdata-i523/hid337/paper1/report.pdf
+    status: 100%
+    chapter: Security
 paper2:
     abstract: >
         Automatic speech recognition (ASR) and natural language processing
@@ -39,7 +37,7 @@ paper2:
     status: In Progress
     title: Natural Language Processing (NLP) to analyze human speech data
     type: latex
-    url: https://github.com/bigdata-i523/hid337/paper2/report.pdf
+    url: https://github.com/bigdata-i523/hid337/paper2/
 project:
     abstract: future task
     author:
@@ -49,4 +47,4 @@ project:
     status: not started
     title: future task
     type: latex
-    url: https://github.com/bigdata-i523/hid337/project/report.pdf
+    url: https://github.com/bigdata-i523/hid337/project/
