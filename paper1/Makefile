@@ -13,6 +13,18 @@ ifeq ($(UNAME), Linux)
 OPEN=xdg-open
 endif
 
+all:
+	$(LATEX) ${FILE} > tmp.log 2>&1
+	make -f Makefile bibtex > report-latex.log 2>&1
+	$(LATEX) ${FILE} > tmp.log 2>&1
+	@echo 
+	@echo "latex report" 
+	@echo "===========================================" 
+	@echo 
+	$(LATEX) ${FILE} >> report-latex.log 2>&1
+	make -f Makefile quote_error >> report-latex.log 2>&1
+	make -f Makefile yaml_error >> report-latex.log 2>&1
+	cat report-latex.log
 
 simple:
 	pdflatex ${FLAGS} ${FILE} 
@@ -21,20 +33,12 @@ simple:
 	pdflatex ${FLAGS} ${FILE} 
 
 
-check:
-	$(LATEX) ${FILE} > tmp.log 2>&1
-	make -f Makefile bibtex > report-latex.log 2>&1
-	$(LATEX) ${FILE} > tmp.log 2>&1
-	$(LATEX) ${FILE} >> report-latex.log 2>&1
-	make -f Makefile quote_error >> report-latex.log 2>&1
-	make -f Makefile yaml_error >> report-latex.log 2>&1
-	cat report-latex.log
 
 
 
 bibtex:
 	@echo 
-	@echo "bibtext error" 
+	@echo "bibtext report" 
 	@echo "===========================================" 
 	@echo 
 	@bibtex $(FILE)
