@@ -3,6 +3,7 @@ FLAGS=-interaction nonstopmode -halt-on-error -file-line-error
 REVIEW=review
 DEFAULT=$(FILE)
 LATEX=pydflatex
+PDFLATEX=pdflatex
 
 UNAME := $(shell uname)
 
@@ -31,9 +32,6 @@ simple:
 	make -f Makefile bibtex
 	pdflatex ${FLAGS} ${FILE}
 	pdflatex ${FLAGS} ${FILE} 
-
-
-
 
 
 bibtex:
@@ -103,13 +101,13 @@ review:
 	rm -rf ~/tmp-review
 
 review-pdf:
-	$(LATEX) ${FLAGS} ${REVIEW}
+	$(PDFLATEX) ${FLAGS} ${REVIEW}
 	bibtex ${REVIEW}
 	make -f Makefile insert
-	$(LATEX) ${FLAGS} ${REVIEW}
+	$(PDFLATEX) ${FLAGS} ${REVIEW}
 	bibtex ${REVIEW}
-	$(LATEX) ${FLAGS} ${REVIEW}
-	$(LATEX) ${FLAGS} ${REVIEW}
+	$(PDFLATEX) ${FLAGS} ${REVIEW}
+	$(PDFLATEX) ${FLAGS} ${REVIEW}
 	bibtex -terse ${REVIEW} | sed -e 's/^/\* [ ] /' 
 
 pack:
