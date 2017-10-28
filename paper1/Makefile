@@ -18,10 +18,10 @@ all:
 	$(LATEX) ${FILE} > tmp.log 2>&1
 	make -f Makefile bibtex > report-latex.log 2>&1
 	$(LATEX) ${FILE} > tmp.log 2>&1
-	@echo 
-	@echo "latex report" 
-	@echo "===========================================" 
-	@echo 
+	@echo  >> report-latex.log 2>&1
+	@echo "latex report" >> report-latex.log 2>&1
+	@echo "===========================================" >> report-latex.log 2>&1
+	@echo >> report-latex.log 2>&1
 	$(LATEX) ${FILE} >> report-latex.log 2>&1
 	make -f Makefile quote_error >> report-latex.log 2>&1
 	make -f Makefile yaml_error >> report-latex.log 2>&1
@@ -44,24 +44,24 @@ bibtex:
 	@echo "bibtext _ label error" 
 	@echo "===========================================" 
 	@echo 
-	@fgrep "@" report.bib |fgrep _ | awk -F',' '{print $1}' |  sort -u 
+	@grep -nr "@" report.bib |fgrep _ | awk -F',' '{print $1}' |  sort -u 
 	@echo
 	@echo "bibtext space label error"
 	@echo "===========================================" 
 	@echo
-	@fgrep "@" report.bib |fgrep " " | awk -F',' '{print $1}' | fgrep -v "url" | fgrep -v "@String" | fgrep -v "@Comment"|  sort -u
+	@grep -nr "@" report.bib |fgrep " " | awk -F',' '{print $1}' | fgrep -v "url" | fgrep -v "@String" | fgrep -v "@Comment"|  sort -u
 	@echo
 	@echo "bibtext comma label error"
 	@echo "===========================================" 
 	@echo
-	@fgrep "@" report.bib | fgrep -v "@String" | fgrep -v "@Comment"| fgrep -v ',' | sort -u 
+	@grep -nr "@" report.bib | fgrep -v "@String" | fgrep -v "@Comment"| fgrep -v ',' | sort -u 
 
 quote_error:
 	@echo
 	@echo "latex quote error"
 	@echo "====================="
 	@echo
-	@fgrep @ report.tex | fgrep  '"' |sort -u 
+	@grep  -nr '"' report.tex |sort -u 
 
 yaml_error:
 	@echo
