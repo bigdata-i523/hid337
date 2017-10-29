@@ -16,7 +16,7 @@ endif
 
 all:
 	$(LATEX) ${FILE} > tmp.log 2>&1
-	make -f Makefile bibtex > report-latex.log 2>&1
+	make -f Makefile bibtex > report-latex.log 2>&1 || true
 	$(LATEX) ${FILE} > tmp.log 2>&1
 	@echo  >> report-latex.log 2>&1
 	@echo "latex report" >> report-latex.log 2>&1
@@ -25,6 +25,8 @@ all:
 	$(LATEX) ${FILE} >> report-latex.log 2>&1
 	make -f Makefile quote_error >> report-latex.log 2>&1
 	make -f Makefile yaml_error >> report-latex.log 2>&1
+	make -f Makefile figure_check >> report-latex.log 2>&1
+	make -f Makefile format_check >> report-latex.log 2>&1
 	cat report-latex.log
 
 simple:
@@ -56,19 +58,48 @@ bibtex:
 	@echo
 	@grep -nr "@" report.bib | fgrep -v "@String" | fgrep -v "@Comment"| fgrep -v ',' | sort -u 
 
-quote_error:
-	@echo
+quote_error:	
 	@echo "latex quote error"
 	@echo "====================="
-	@echo
-	@grep  -nr '"' report.tex |sort -u 
+	@echo ""
+	@grep  -nr '"' report.tex |sort -u || true
 
 yaml_error:
 	@echo
 	@echo "yaml error"
 	@echo "====================="
 	@echo
-	@yamllint ../README.yml
+	@yamllint ../README.yml || true
+
+format_check:
+	@echo 
+	@echo "format check"
+	@echo "===========================================" 
+	@echo
+	@echo "if input/i523 is found it is correct (1=ok 0=wrong):"
+	@grep -nr "format/i523" report.tex |wc -l || true
+
+figure_check:
+	@echo 
+	@echo "figure check"
+	@echo "===========================================" 
+	@echo 
+	@echo "Number of figures:"
+	@grep -nr "begin{figure" report.tex  |wc -l
+	@echo "Number of Tables:"
+	@grep -nr "begin{table" report.tex  |wc -l
+	@echo "Number of label:"
+	@grep -nr "label{" report.tex  |wc -l
+	@echo "Number of ref:"
+	@grep -nr "ref{" report.tex  |wc -l
+	@grep -nr "igure 1" report.tex || true
+	@grep -nr "igure 2" report.tex || true
+	@fgrep -nr  "igure 3" report.tex || true 
+	@grep -nr "igure 4" report.tex  ||true
+	@grep -nr "able 1" report.tex ||true
+	@grep -nr "able 2" report.tex ||true
+	@grep -nr "able 3" report.tex ||true
+	@grep -nr "able 4" report.tex ||true
 
 #@echo
 #./check-yaml.py
