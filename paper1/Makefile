@@ -27,6 +27,7 @@ all:
 	make -f Makefile yaml_error >> report-latex.log 2>&1
 	make -f Makefile figure_check >> report-latex.log 2>&1
 	make -f Makefile format_check >> report-latex.log 2>&1
+	make -f Makefile none-ascii >> report-latex.log 2>&1
 	cat report-latex.log
 
 simple:
@@ -100,6 +101,21 @@ figure_check:
 	@grep -nr "able 2" report.tex ||true
 	@grep -nr "able 3" report.tex ||true
 	@grep -nr "able 4" report.tex ||true
+
+none-ascii:
+	@echo 
+	@echo "non ascii check report.tex"
+	@echo "===========================================" 
+	@echo
+	@perl -ane '{ if(m/[[:^ascii:]]/) { print  } }' report.tex || true
+	@echo 
+	@echo "non ascii check report.bib"
+	@echo "===========================================" 
+	@echo 
+	@perl -ane '{ if(m/[[:^ascii:]]/) { print  } }' report.bib || true
+
+# @grep -n -P "[^|a-zA-Z\{\}\s%\./\-:;,0-9@=\\\\\"'\(\)_~\$\!&\`\?+#\^<>\[\]\*]" report.tex || true
+# @grep -n -P "[^|a-zA-Z\{\}\s%\./\-:;,0-9@=\\\\\"'\(\)_~\$\!&\`\?+#\^<>\[\]\*]" report.bib || true
 
 #@echo
 #./check-yaml.py
