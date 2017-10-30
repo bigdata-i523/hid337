@@ -19,7 +19,7 @@ paper1:
         about highlevel architecture of an intelligent security system with
         video surveillance, audio monitoring/recording, video and
         Audio analytics, alerting homeowners/authorities/agencies as needed.
-    url: https://github.com/bigdata-i523/hid337/paper1/
+    url: https://github.com/bigdata-i523/hid337/paper1/report.pdf
     type: latex
     status: Nov 01 17 100%
     chapter: Security
@@ -40,7 +40,7 @@ paper2:
     status: In Progress
     title: Natural Language Processing (NLP) to analyze human speech data
     type: latex
-    url: https://github.com/bigdata-i523/hid337/paper2/
+    url: https://github.com/bigdata-i523/hid337/paper2/report.pdf
 project:
     abstract: future task
     author:
