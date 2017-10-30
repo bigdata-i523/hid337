@@ -24,7 +24,7 @@
 * 09/01/17 Bought CanaKit Raspberry Pi 3 Complete Starter Kit - 32 GB Edition 
 * 09/04/17 - 09/10/17  Learning about Markdown(.md) syntax to prepare notebook.md
 * 09/21/17 Tried to install texlive-full on Ubuntu but failed due to lack of space
-* 10/15/17 Working on readme-checker.py
+* 10/29/17 Working on wordcount experiment
 
 # Writing
 
