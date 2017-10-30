@@ -23,11 +23,13 @@ all:
 	@echo "===========================================" >> report-latex.log 2>&1
 	@echo >> report-latex.log 2>&1
 	$(LATEX) ${FILE} >> report-latex.log 2>&1
-	make -f Makefile quote_error >> report-latex.log 2>&1
-	make -f Makefile yaml_error >> report-latex.log 2>&1
-	make -f Makefile figure_check >> report-latex.log 2>&1
-	make -f Makefile format_check >> report-latex.log 2>&1
+	make -f Makefile quote-error >> report-latex.log 2>&1
+	make -f Makefile yaml-error >> report-latex.log 2>&1
+	make -f Makefile figure-check >> report-latex.log 2>&1
+	make -f Makefile format-check >> report-latex.log 2>&1
 	make -f Makefile none-ascii >> report-latex.log 2>&1
+	make -f Makefile footnote-error >> report-latex.log 2>&1
+	make -f Makefile wordcount-report >> report-latex.log 2>&1
 	cat report-latex.log
 
 simple:
@@ -36,6 +38,10 @@ simple:
 	pdflatex ${FLAGS} ${FILE}
 	pdflatex ${FLAGS} ${FILE} 
 
+
+check:
+	@wget -q https://raw.githubusercontent.com/bigdata-i523/sample-hid000/master/paper1/check.py -O check.py
+	@python check.py
 
 bibtex:
 	@echo 
@@ -59,20 +65,37 @@ bibtex:
 	@echo
 	@grep -nr "@" report.bib | fgrep -v "@String" | fgrep -v "@Comment"| fgrep -v ',' | sort -u 
 
-quote_error:	
+footnote-error:	
+	@echo ""
+	@echo "footnote error"
+	@echo "====================="
+	@echo ""
+	@grep  -nr 'footnote' report.tex |sort -u || true
+
+wordcount-report:
+	@echo ""
+	@echo "wordcount report"
+	@echo "====================="
+	@echo ""
+	@wc -w report.tex || true
+	@echo '   ' $(shell ps2ascii report.pdf | wc -w) 'report.pdf'
+	@wc -w report.bib || true
+
+quote-error:
+	@echo ""
 	@echo "latex quote error"
 	@echo "====================="
 	@echo ""
 	@grep  -nr '"' report.tex |sort -u || true
 
-yaml_error:
+yaml-error:
 	@echo
 	@echo "yaml error"
 	@echo "====================="
 	@echo
 	@yamllint ../README.yml || true
 
-format_check:
+format-check:
 	@echo 
 	@echo "format check"
 	@echo "===========================================" 
@@ -80,7 +103,7 @@ format_check:
 	@echo "if input/i523 is found it is correct (1=ok 0=wrong):"
 	@grep -nr "format/i523" report.tex |wc -l || true
 
-figure_check:
+figure-check:
 	@echo 
 	@echo "figure check"
 	@echo "===========================================" 
@@ -106,12 +129,16 @@ none-ascii:
 	@echo 
 	@echo "non ascii check report.tex"
 	@echo "===========================================" 
-	@echo
+	@echo ""
+	@echo "this check is not perfect"
+	@echo ""
 	@perl -ane '{ if(m/[[:^ascii:]]/) { print  } }' report.tex || true
 	@echo 
 	@echo "non ascii check report.bib"
 	@echo "===========================================" 
-	@echo 
+	@echo ""
+	@echo "this check is not perfect"
+	@echo ""
 	@perl -ane '{ if(m/[[:^ascii:]]/) { print  } }' report.bib || true
 
 # @grep -n -P "[^|a-zA-Z\{\}\s%\./\-:;,0-9@=\\\\\"'\(\)_~\$\!&\`\?+#\^<>\[\]\*]" report.tex || true
