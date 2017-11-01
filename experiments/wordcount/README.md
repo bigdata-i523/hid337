@@ -8,8 +8,8 @@ the or and is of a to  in that can as from it contradictions contradictory
 ### Sample output ###
 
 <p align="center">
-  <img src="wordcount1.JPG" width="1000"/>
-  <img src="wordcountbarchart.JPG" width="1000"/>
+  <img src="wordcount2.JPG" width="1000"/>
+  <img src="wordcountbarchart2.JPG" width="1000"/>
 </p>
 
 
