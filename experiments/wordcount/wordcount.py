@@ -70,7 +70,7 @@ def main():
    c3 = get_column(top10, 1,total)
   
    #add % column to existing table
-   df['total'] = c3
+   df['Count %'] = c3
    
    #print final result as a table
    print(df)
