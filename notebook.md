@@ -25,6 +25,7 @@
 * 09/04/17 - 09/10/17  Learning about Markdown(.md) syntax to prepare notebook.md
 * 09/21/17 Tried to install texlive-full on Ubuntu but failed due to lack of space
 * 10/29/17 Working on wordcount experiment
+* 10/31/17 Completed wordcount program
 
 # Writing
 
@@ -43,6 +44,7 @@
  
 * 09/25/2017 Attended 7-8pm zoom meeting
 * 10/02/2017 Attended 7-8pm zoom meeting
+* 10/30/2017 Attended 6-7pm zoom meeting
 
 # Location
 
