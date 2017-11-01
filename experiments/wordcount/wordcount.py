@@ -3,6 +3,7 @@ import matplotlib.pylab as plt
 import operator
 import tkinter
 import pandas as pd
+from pylab import MaxNLocator
 
 #build hashmap with words from input file
 def buildHashmap(tokens):
@@ -38,7 +39,7 @@ def main():
   try:
    #read input file with words
    fileName = input("Enter filename with words: ")
-   inputFile = open(fileName,"r")
+   inputFile = open(fileName,"r",encoding='ascii')
    words = inputFile.read().strip().split()
 
    #read file with excluded words
@@ -75,12 +76,15 @@ def main():
    print(df)
    
    #draw bar chart   
+   ax = plt.figure().gca() #to show wholenumbers on the y-axis
+   ax.yaxis.set_major_locator(MaxNLocator(integer=True))
    plt.bar(range(len(top10)), [val[1] for val in top10], align='center',color='gray')
    plt.xticks(range(len(top10)), [val[0] for val in top10])
    plt.xticks(rotation=90)
    plt.xlabel('Words')
    plt.ylabel('Frequency')
    plt.title('Top 10 Words')
+   
    plt.show()
   
   finally:
