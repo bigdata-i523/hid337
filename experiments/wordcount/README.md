@@ -12,4 +12,5 @@ the or and is of a to  in that can as from it contradictions contradictory
   <img src="wordcountbarchart2.JPG" width="1000"/>
 </p>
 
-
+### Issues ###
+Some of the input words is causing unicode error. Yet to add fix for it.
