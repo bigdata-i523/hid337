@@ -13,4 +13,4 @@ the or and is of a to  in that can as from it contradictions contradictory
 </p>
 
 ### Issues ###
-Some of the input words is causing unicode error. Yet to add fix for it.
+Some input words causing UnicodeDecodeError error. Yet to add fix for it.
