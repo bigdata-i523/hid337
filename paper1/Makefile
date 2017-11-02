@@ -23,13 +23,15 @@ all:
 	@echo "===========================================" >> report-latex.log 2>&1
 	@echo >> report-latex.log 2>&1
 	$(LATEX) ${FILE} >> report-latex.log 2>&1
-	make -f Makefile quote-error >> report-latex.log 2>&1
-	make -f Makefile yaml-error >> report-latex.log 2>&1
-	make -f Makefile figure-check >> report-latex.log 2>&1
-	make -f Makefile format-check >> report-latex.log 2>&1
-	make -f Makefile none-ascii >> report-latex.log 2>&1
-	make -f Makefile footnote-error >> report-latex.log 2>&1
-	make -f Makefile wordcount-report >> report-latex.log 2>&1
+	make -f Makefile check >> report-latex.log 2>&1
+
+#	make -f Makefile quote-error >> report-latex.log 2>&1
+#	make -f Makefile yaml-error >> report-latex.log 2>&1
+#	make -f Makefile figure-check >> report-latex.log 2>&1
+#	make -f Makefile format-check >> report-latex.log 2>&1
+#	make -f Makefile none-ascii >> report-latex.log 2>&1
+#	make -f Makefile footnote-error >> report-latex.log 2>&1
+#	make -f Makefile wordcount-report >> report-latex.log 2>&1
 	cat report-latex.log
 
 simple:
