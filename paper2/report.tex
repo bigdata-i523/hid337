@@ -43,31 +43,37 @@ As voice becoming a common user interface, the need for accurate and intelligent
      \item Speaker Recognition
      \item Speech Recognition
    \end{itemize}
-Although the performance of current speaker and speech  recognition systems is far from perfect, these  systems  have already proven their usefulness for certain applications. 
+Although the performance of current speaker and speech  recognition systems is far from perfect, these  systems  have already proven their usefulness in many applications. 
 \section{SPEAKER RECOGNITION}
-Speaker identification is one of the important task in speech processing. Each person has a voice that is different from everyone else’s.Speaker recognition is the process of identifying who is speaking by using acoustic features of speech.Speaker recognition has been applied mostly in security applications to control access. Current speaker recognition systems are not very accurate for large speaker populations. 
+Speaker identification is one of the important task in speech processing. Each person has a voice that is different from everyone else's.Speaker recognition is the process of identifying who is speaking by using acoustic features of speech.Speaker recognition has been applied mostly in security applications to control access. Current speaker recognition systems are not very accurate for large speaker populations. 
 
 \section{NLP FOR SPEECH RECOGNITION}
-Speech recognition is the ability to identify spoken words. It is the process of converting speech into text. This process prepares the input data (speech) to be appropriate for Natural Language Processing(NLP). NLP is the processing of the text to understand the meaning of the text. It comes as the next step of speech recognition. 
+Speech recognition is the ability to identify spoken words. It is the process of converting speech into text. This process prepares the input data (speech) to be appropriate for Natural Language Processing(NLP). NLP is the processing of the text to understand the meaning of the text. It comes as the next step of speech recognition. \textit{Machine learning} algorithms are used in conjunction with  language models to recognize text in natural language processing systems, which may also employ  speech models and hardware/software specialized to process and recognize speech. 
 
 Analyzing language for its meaning is a complex task. Modern speech recognition research began in the late 1950s with the advent of the digital computer. The 1960s saw advances in the automatic segmentation of speech into units of linguistic relevance like phonemes, syllables. And now with advancements in the field of Artificial Intelligence, neural networks have been used in many aspects of speech recognition such as phoneme classification,isolated word recognition,audiovisual speech recognition, audiovisual speaker recognition and speaker adaptation. In the context of Speech Recognition, NLP involves 4 basic steps
   \begin{itemize}
-     \item Morphological Analysis
-     \item Syntactic Analysis
-     \item Semantic Analysis
-     \item Pragmatic Analysis
+     \item \textbf{Morphological Analysis}:
+     Morphological analysis is the identification, analysis, and description of the structure of a given language’s root words,word boundaries, affixes, parts of speech, etc. The term Morpheme means the "minimal unit of meaning". For ex: if you take word "unhappiness" it has three morphemes each carrying its own meaning.
+     \item \textbf{Syntactic Analysis}:
+     Syntactic analysis is the process of analyzing a string of symbols in natural language conforming to the rules of a formal grammar.
+     \item \textbf{Semantic Analysis}:
+     Semantic analysis is the process of relating syntactic structures, from the levels of phrases, clauses, sentences and paragraphs to the level of the writing as a whole, to their language-independent meanings.
+     \item \textbf{Pragmatic Analysis}:
+     Pragmatic Analysis is how sentences are used in different situations and how use affects the interpretation of the sentence. Means what was said is reinterpreted as what it actually means.
   \end{itemize}
 
-\subsection{Morphological Analysis}
-Morphological analysis is the identification, analysis, and description of the structure of a given language’s root words, word boundaries, affixes, parts of speech, etc. There are two typical problems in this area, which includes word segmentation and part-of-speech (POS) tagging. Word segmentation is the problem of finding word boundaries in a corpus. 
-\subsection{Syntactic Analysis}
-Syntactic analysis or parsing is the process of analyzing a string of symbols, either in natural language or in computer languages, conforming to the rules of a formal grammar.
-\subsection{Semantic Analysis}
-Semantic analysis is the process of relating syntactic structures, from the levels of phrases, clauses, sentences and paragraphs to the level of the writing as a whole, to their language-independent meanings.
-\subsection{Pragmatic Analysis}
-Pragmatic Analysis is how sentences are used in different situations and how use affects the interpretation of the sentence. Means what was said is reinterpreted as what it actually means.
-\section{Conclusion}
+NLP techniques are broadly categorized into 
 
+  \begin{itemize}
+   \item \textbf{Rule based (knowledge driven)}:
+   Rule based approach requires huge human effort to prepare the rules, parts of speech triggers etc. The  best  known  parser  with  a  rule  base  backbone  is  the  RASP  (Robust Accurate Statistical Parsing) system that combines rule-based grammar with a probabilistic parse selection model [12, 13].
+   \item \textbf{Statistical based (data driven)}:
+   Statistical/Data driven approaches treats natural language processing as a \textit{machine learning} problem. They use supervised or unsupervised statistical machine learning algorithms. This method applies learning algorithm to a large body of previously translated text(large data) known as a parallel corpus. 
+   
+   The main advantage of the statistical approach is its language Independence.Provided there are annotated data, the same algorithm can be used for learning rules or models for any language. The statistical approach is significantly  leading in terms of accuracy against manually annotated corpora, as well as in overall number of statistical parsers compared to the number of rule-based parsers. Fast, cheap computing hardware, advances in processor speed, random access memory size, secondary storage, and grid computing making Statistical approach as popular choice. One example parser with his approach is MaltParser [128], a data-driven parser-generator for dependency parsing  that  supports  several  parsing  algorithms  and  learning  algorithms and allows user-defined feature models, consisting of arbitrary combinations of lexical features, part-of-speech features and dependency features.
+  \end{itemize} 
+     
+\section{Conclusion}
 
 
 \begin{acks}
