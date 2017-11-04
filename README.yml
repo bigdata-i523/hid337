@@ -37,7 +37,7 @@ paper2:
     hid:
         - 337
         - 333
-    status: Nov 05 17 60%
+    status: Nov 06 17 60%
     title: Natural Language Processing (NLP) to analyze human speech data
     type: latex
     url: https://github.com/bigdata-i523/hid337/paper2/report.pdf
