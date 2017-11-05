@@ -1,6 +1,6 @@
 \documentclass[sigconf]{acmart}
 
-\input{format/i523}
+\input{format/final}
 
 \begin{document}
 \title{Natural Language Processing (NLP) to analyze human speech data}
@@ -39,7 +39,7 @@ Extracting meaningful information from large volumes of unstructured human langu
 
 \section{Introduction}
 The advancements of digital signal processing, large data processing and natural language processing technologies made speech/voice recognition applications more sophisticated to help solving social and industrial problems. For example, having an intelligent automatic voice recognition system in home to recognize and differentiate between the family members and outsiders would add great value to modern society in terms of assisting in their busy life as well provide necessary help/guidance in offering day-to-day problem solutions, personalized entertainment,  and safety/security. In another example, these systems can provide personalized customer care experience through voice and face recognition by engaging them based on their interests/hobbies. Google home, Alexa, and Siri have become part of the main stream human life activities to seek information and get entertainment by directly speaking with these devices.
-
+\par\null\par
 The hypothetical intelligent voice system would need the following technologies to work together:
  \begin{itemize}
      \item Highly efficient voice sensors and high speed digital signal processors
@@ -48,7 +48,7 @@ The hypothetical intelligent voice system would need the following technologies 
      \item Machine learning algorithms to understand family members habits and behaviors
      \item Natural Language Processing (NLP) algorithms to precisely recognize and process the voice data
  \end{itemize}
- 
+\par\null\par
  Open Source and/or Other tools:
  \begin{itemize}
      \item Google Cloud Speech API or Alexa Voice Service (AVS)
@@ -56,79 +56,96 @@ The hypothetical intelligent voice system would need the following technologies 
      \item Natural language processing (NLP) to analyze the speech of family members, friends and strangers
      \item Interfacing with email servers, phone, text message servers
  \end{itemize}
- 
+\par\null\par
  The following sections are organized to review some of the technologies available in the industry and universities and discuss the potential application concepts for home and industry.
- 
-   The sections are broadly divided in to speech recognition and speaker recognition. In the speech
-recognition the focus is on detecting the words irrespective of the personal differences whereas speaker recognition is focused on detecting the physical speaker by discarding the words and their meanings.
+\par\null\par
+The sections are broadly discussed on speech recognition and speaker recognition. In the speech recognition the focus is on detecting the words irrespective of the personal differences whereas speaker recognition is focused on detecting the physical speaker by discarding the words and their meanings. In other words, Speech recognition represents speech content and disregards speaker identity whereas speaker recognition represents speaker identity but disregards speech content.
 
-   Speech recognition represents speech content and disregards speaker identity whereas speaker 
-recognition represents speaker identity but disregards speech content.
+\begin{figure}
+\includegraphics[width=1.0\columnwidth]{images/speechrecognition.pdf}
+\caption{Conceptual Model of Speech Production}
+\end{figure}
+
+A simple conceptual model of human speech production and recognition is shown in Figure 1. The human speech waveform creation process from the speaker intention is referred as Speaker Model which reflects speaker’s accent and choice of words. The Speech Recognizer consists of acoustic processor which analyzes the speech signal and converts it into a set of acoustic (spectral, temporal) features followed by linguistic decoder to estimate the words of spoken sentence.
 
 \section{SPEAKER RECOGNITION THEORY}
-The speaker recognition technology is multidisciplinary, which requires hardware based sensors to convert voice in to electrical signals, speech processing module that converters the electrical signals in to digitized data using advanced digital signal processors (DSP). The basic recognition process involves modeling the acoustic data and the natural language to search for patterns. The following figure shows the basic concept of voice recognition.
+The speaker recognition technology is multidisciplinary, which requires hardware based sensors to convert voice in to electrical signals, speech processing module that converters the electrical signals in to digitized data using advanced digital signal processors (DSP). The basic recognition process involves modeling the acoustic data and the natural language to search for patterns. Figure 2 shows the basic concept of voice recognition.
+\newline
+\begin{figure}
+\includegraphics[width=1.0\columnwidth]{images/speakerrecognition.pdf}
+\caption{Speaker Recognition Concept}
+\end{figure}
 
+As speech is a sound pressure wave, its conversion in to electrical signal and then in to digital signal introduces distortion. As shown in the figure, acoustic front-end requires several signal processing components such as spectral shaping, spectral analysis, spectral modeling, and parametric transformation. These components will condition the signal and establish the spectral measurements and parameters for acoustic modeling.
+\par\null\par
+Once robust parameterization of speech signal is established, then spectral dynamics or changes of the spectrum with respect to time will be captured. Typically, speaker recognition can be achieved by using differentiation of spectral features, which requires temporal derivatives of the voice spectrum. These temporal derivatives are commonly approximated by differentiating cepstral features using a linear regression. 
 
-As speech is a sound pressure wave, its conversion in to electrical signal and then in to digital signal introduces distortion. As shown in the figure, acoustic front-end requires several signal processing components such as spectral shaping, spectral analysis, spectral modeling, and parametric transformation. These components will condition the signal and establish the spectral measurements and parameters for acoustic modeling.Once robust parameterization of speech signal is established, then spectral dynamics or changes of the spectrum with respect to time will be captured. Typically, speaker recognition can be achieved by using differentiation of spectral features, which requires temporal derivatives of the voice spectrum. These temporal derivatives are commonly approximated by differentiating cepstral features using a linear regression.
-
-\subsection{Recognition Features}
-There is no "standard" set of features for speech recognition. Instead, various combinations of acoustic, articulatory, and auditory features have been utilized in a range of speech recognition systems. The most popular acoustic features have been the (LPC-derived) mel-frequency cepstrum coefficients and their derivatives [2].
-
-\subsection{Speaker Models}
+\subsection{Feature Analysis}
+There is no "standard" set of features for speech recognition. Instead, various combinations of acoustic, articulatory, and auditory features have been utilized in a range of speech recognition systems [2]. The input human speech signal, s[n], is converted to the series of feature vectors, X = {x1, x2, …, xT}, by the feature analysis or spectral analysis module. These feature vectors represent the temporal spectral characteristics of the speech signal in the form of mel frequency cepstrum coefficients.
+\subsection{Pattern Classification}
+[3]The pattern classification is the process of grouping the patterns, which are sharing the same set of properties. The pattern classification involves in computing a match score in speaker recognition system. The term match score refers the similarity of the input feature vectors to some model. Speaker models are built from the feature vectors extracted from the speech signals. Based on the feature extraction a model of the voice is generated and stored in the speaker recognition system. There three major techniques Dynamic Time Warping (DTW), Gaussian Mixture Model (GMM) and Support Vector Machine (SVM) typically used in pattern classification process. 
+\subsection{Speaker Acoustic Models}
 In the process of recognizing speaker voice, the speaker model will be created and trained with acoustic characteristics of the voice. The typical speaker recognition process involves two specific tasks: verification and identification. In the verification, the goal is to determine from a voice sample if a person is who he or she claims. In the identification, the goal is to determine which one of a group of known voices best matches the input voice sample. In either task the speech can be constrained to be a known phrase (text-dependent) or totally unconstrained (text-independent). The success in both tasks depends on extracting and modeling the speaker-dependent characteristics of the speech signal which can effectively distinguish one talk from another.
 
 A brief description of some of the speaker modeling methods typically used is given below.
+\par\null\par
+\textbf{Nearest Neighbor:} In this technique, feature vectors from enrollment (training) speech are retained to represent the speaker. During the verification, the match score is computed as the accumulated distance of each test feature vector to its k nearest neighbors in the speaker's training vectors.
 
-   \textbf{Nearest Neighbor:} In this technique, feature vectors from enrollment (training) speech 
-are retained to represent the speaker. During the verification, the match score is computed as the cumulated distance of each test feature vector to its k nearest neighbors in the speaker's training vectors.
+\textbf{Neural Networks:} These models are trained to discriminate between the speaker being modeled and some alternate speakers.
 
-   \textbf{Neural Networks:} These models are trained to discriminate between the speaker being
-modeled and some alternate speakers.
-
-    \textbf{Hidden Markov Models (HMM):}  The temporal evolution of speech signal
+\textbf{Hidden Markov Models (HMM):}  The temporal evolution of speech signal
 features/characteristics and model statistical variations of the features are encoded to provide statistical representation of speaker.
 
-    \textbf{Template Matching:} In this method, the model contains a template with sequence of 
-feature vectors. During the verification a match score is produced by using dynamic time warping (DTW) to align and measure the similarity between test phrase and speaker template.
-
-\subsection{Speaker Recognition Technologies} 
-
-<<<<<TODO>>>>>>>>>>
-
-\section{SPEECH RECOGNITION THEORY}
+\textbf{Template Matching:} In this method, the model contains a template with sequence of feature vectors. During the verification a match score is produced by using dynamic time warping (DTW) to align and measure the similarity between test phrase and speaker template.
+\subsection{Natural Language Processing (NLP)} 
 Speech recognition is the process of analyzing the acoustic data to extract the speech content. In this process speech will be converted in to text as first step. Then, the converted text will be fed to Natural Language Processing (NLP) algorithms for extracting the words and meaning. NLP is the processing of the text to understand the meaning of the text. Machine learning algorithms are used in conjunction with language models to recognize text in natural language processing systems, which may also employ speech models and hardware/software specialized to process and recognize speech. 
 
-Analyzing language for its meaning is a complex task. Modern speech recognition research began in the late 1950s with the advent of the digital computer. The 1960s saw advances in the automatic segmentation of speech into units of linguistic relevance like phonemes, syllables. And now with advancements in the field of Artificial Intelligence, neural networks have been used in many aspects of speech recognition such as phoneme classification, isolated word recognition, audiovisual speech recognition, and audiovisual speaker recognition and speaker adaptation. In the context of Speech Recognition, NLP involves 4 basic steps.
+Analyzing language for its meaning is a complex task. Modern speech recognition research began in the late 1950s with the advent of the digital computer. The 1960s saw advances in the automatic segmentation of speech into units of linguistic relevance like phonemes, syllables. And now with advancements in the field of Artificial Intelligence, neural networks have been used in many aspects of speech recognition such as phoneme classification, isolated word recognition, audiovisual speech recognition, and audiovisual speaker recognition and speaker adaptation. In the context of Speech Recognition, NLP involves 4 basic steps.\par\null\par
 
-  \begin{itemize}
-     \item \textbf{Morphological Analysis}:
-     Morphological analysis is the identification, analysis, and description of the structure of a given language’s root words,word boundaries, affixes, parts of speech, etc. The term Morpheme means the "minimal unit of meaning". For ex: if you take word "unhappiness" it has three morphemes each carrying its own meaning.
-     \item \textbf{Syntactic Analysis}:
+\textbf{Morphological Analysis}:
+     Morphological analysis is the identification, analysis, and description of the structure of a given language's root words,word boundaries, affixes, parts of speech, etc. The term Morpheme means the "minimal unit of meaning". For ex: if you take word "unhappiness" it has three morphemes each carrying its own meaning.
+
+\textbf{Syntactic Analysis}:
      Syntactic analysis is the process of analyzing a string of symbols in natural language conforming to the rules of a formal grammar.
-     \item \textbf{Semantic Analysis}:
+
+\textbf{Semantic Analysis}:
      Semantic analysis is the process of relating syntactic structures, from the levels of phrases, clauses, sentences and paragraphs to the level of the writing as a whole, to their language-independent meanings.
-     \item \textbf{Pragmatic Analysis}:
+
+\textbf{Pragmatic Analysis}:
      Pragmatic Analysis is how sentences are used in different situations and how use affects the interpretation of the sentence. Means what was said is reinterpreted as what it actually means.
-  \end{itemize}
 
-NLP techniques are broadly categorized into 
-
+\par\null\par
+NLP techniques are broadly categorized into \textit{Rule based (human driven)} and \textit{Statistical based (data driven)}:
+\par\null\par
+\textbf{Rule based}:
+   Rule based (human driven) approach requires huge human effort.Grammars and semantic components are prepared by many carefully hand
+   crafted rules. Rule based approaches takes time, money and trained personnel to make and test the rules. Also rule engineering may not scale very well. Systems based on hand-written rules can only be made more accurate by increasing the complexity of the rules, which is a much more difficult task. In particular, there is a limit to the complexity of systems based on hand-crafted rules, beyond which the systems become more and more unmanageable.Once there are hundreds of rules, they start interacting in complex ways and becomes difficult while updating or adding any new rules. Rule based approaches have very poor generalization, but for the languages with fewest speakers, rules-based is the best approach since there exist not enough large corpora to go for Statistical approach. The  best  known  parser  with  a  rule base  backbone is the RASP(Robust Accurate Statistical Parsing) system that combines rule-based grammar with a probabilistic parse selection model [12, 13].
+\par\null\par
+\textbf{Statistical based}:
+   Statistical (data driven) approaches treats natural language processing as a \textit{machine learning} problem. They use supervised or unsupervised statistical machine learning algorithms. This method applies learning algorithm to a large body of previously translated text(large data) known as a parallel corpus. Systems based on Statistical approach can be made more accurate by simply supplying more input data.The main advantage of the statistical approach is its language Independence.Provided there are annotated data, the same algorithm can be used for learning rules or models for any language. The statistical approach is significantly  leading in terms of accuracy against manually annotated corpora, as well as in overall number of statistical parsers compared to the number of rule-based parsers. Fast, cheap computing hardware, advances in processor speed, random access memory size, secondary storage, and grid computing making Statistical approach as popular choice. One example parser with his approach is MaltParser [128], a data-driven parser-generator for dependency parsing  that  supports  several  parsing  algorithms  and  learning  algorithms and allows user-defined feature models, consisting of arbitrary combinations of lexical features, part-of-speech features and dependency features.
+\par\null\par
+Efficient approach is to use both approaches, first use a rule-based model, then use its results as data for the statistical model. 
+\subsection{Speech Recognition Technologies}     
+\textbf{Google Cloud Speech API:} Google Cloud Speech API converts audio to text by applying powerful neural network models in an easy to use API. The API recognizes over 110 languages and supports audio files up to three hours in length. Two basic use cases where Google Cloud Speech apis can be best applied are
   \begin{itemize}
-   \item \textbf{Rule based (knowledge driven)}:
-   Rule based approach requires huge human effort to prepare the rules, parts of speech triggers etc. The  best  known  parser  with  a  rule  base  backbone  is  the  RASP  (Robust Accurate Statistical Parsing) system that combines rule-based grammar with a probabilistic parse selection model [12, 13].
-   \item \textbf{Statistical based (data driven)}:
-   Statistical/Data driven approaches treats natural language processing as a \textit{machine learning} problem. They use supervised or unsupervised statistical machine learning algorithms. This method applies learning algorithm to a large body of previously translated text(large data) known as a parallel corpus. 
-   
-   The main advantage of the statistical approach is its language Independence.Provided there are annotated data, the same algorithm can be used for learning rules or models for any language. The statistical approach is significantly  leading in terms of accuracy against manually annotated corpora, as well as in overall number of statistical parsers compared to the number of rule-based parsers. Fast, cheap computing hardware, advances in processor speed, random access memory size, secondary storage, and grid computing making Statistical approach as popular choice. One example parser with his approach is MaltParser [128], a data-driven parser-generator for dependency parsing  that  supports  several  parsing  algorithms  and  learning  algorithms and allows user-defined feature models, consisting of arbitrary combinations of lexical features, part-of-speech features and dependency features.
+  \item human-computer interaction 
+  \item speech analytics on human-to-human interactions.
   \end{itemize} 
 
-\subsection{Speech Recognition Technologies}     
+\textbf{IBM Watson Speech to Text:} Powerful real-time speech recognition software.Automatically transcribe audio from 7 languages in real-time. Rapidly identify and transcribe what is being discussed, even from lower quality audio, across a variety of audio formats and programming interfaces. 
 
-<<<<<TODO>>>>>>>>>>
+\textbf{Dragon NaturallySpeaking:} Dragon NaturallySpeaking (DNS) is a speech recognition software package developed by Dragon Systems of Newton, Massachusetts. It recognizes and transcribes words at a high speed, and gives flexibility to dictate for any situation. 
 
+\par\null\par
+In terms of freely available resources, Carnegie Mellon University's Sphinx toolkit is one good software for speech recognition. Another resource (free but copyrighted) is the HTK toolkit. For more recent and state-of-the-art techniques, Kaldi toolkit can be used.
+
+\subsection{Confidence Scoring or Speaker Verification}
+The confidence scoring process is used to provide a confidence score for each individual word in the recognized string. The scores are produced by extracting confidence features from the computation of the recognition hypothesis and processing the features using accept/reject classifier for word utterance hypothesis. The output of the confidence classifiers can then be incorporated into the parsing mechanism of the language understanding component [4]. 
 
 \section{BIG DATA CONTEXT IN SPEECH ANALYTICS}
-To get better insight in to customer behavior, satisfaction, and trends information businesses are depending on big data technologies for voice analysis by analyzing large volumes of call data. The use of voice analytics combined with big data technologies will help call centers to improve performance by reducing the call time and repeat calls, providing customer satisfaction information etc.When applications need continuous recording and processing of large volumes of human speech data for home, industry or public enterprise security/information/entertainment purposes then big data technologies will help meeting the computing and storage demands.  
+To get better insight in to customer behavior, satisfaction, and trends information businesses are depending on big data technologies for voice analysis by analyzing large volumes of call data. The use of voice analytics combined with big data technologies will help call centers to improve performance by reducing the call time and repeat calls, providing customer satisfaction information etc.
+\newline
+When applications need continuous recording and processing of large volumes of human speech data for home, industry or public enterprise security/information/entertainment purposes then big data technologies will help meeting the computing and storage demands.  
 
 \section{INTEGRATED SPEECH AND VOICE RECOGNITION APPLICATIONS}
 Voice biometrics, customer service, truth detection, and personal voice assistant are some of the applications currently being used by the industry with speech recognition and analytics as key underlying technologies. Voice recognition technology has been in use by security systems with voice activated locks, law enforcement and criminology for truth detection. 
@@ -148,8 +165,20 @@ The voice and speech recognition technology and NLP combined with big data techn
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{report} 
-
+\newpage
 \appendix
+\section{Work Breakdown}
+\subsection{HID 333:Anil Ravi}
+\begin{itemize}
+  \item Identified Paper1 topic
+  \item Reviewed the draft paper
+\end{itemize}
+\subsection{HID 337:Ashok Reddy Singam}
+\begin{itemize}
+  \item Editing Latex template using ShareLatex online tool
+  \item Managed JabRef entries 
+  \item Reviewed the draft paper 
+\end{itemize}
 
 
 
