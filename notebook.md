@@ -39,6 +39,7 @@
 * 10/15/17 Working on Paper2
 * 10/20/17 Fixed paper1 issues as per TA's comments. Prepared paper2 files
 * 10/29/17 Fixed paper1 issues as per turnitin feedback
+* 11/03/17 - 11/05/17 - Worked on paper2. Submitted paper2
 
 # Meetings
  
