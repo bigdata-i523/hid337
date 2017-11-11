@@ -12,6 +12,7 @@
 * 09/23/17 Watched 09/18/17 Meeting notes video https://drive.google.com/open?id=0B8936_ytjfjmcXNCdTkyNllTeVU 
            to understand sharelatex and jabref
 * 09/26/17 Added Meetings and Location sections to Notebook
+* 11/10/17 Installed jypyter on windows7 as a part of anaconda3 installation
 
 # Theory
 
