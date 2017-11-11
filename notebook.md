@@ -18,6 +18,7 @@
 * 08/22/17 - 09/01/17 Read and watched Videos at Introduction(3.1)
 * 08/22/17 - 09/01/17 Watched video on Paper writing by Simon Peyton Jones 
 * 11/10/17 - Watched video 3.8.1. Internet of Things 
+* 11/10/17 - Watched video 3.8.2. Robotics and IOT Expectations
 
 # Practice
 
