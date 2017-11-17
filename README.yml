@@ -32,6 +32,7 @@ paper2:
         This paper describes the architecture, building blocks, performance
         and applications for such system that would use pre-developed ASR
         and NLP APIs.
+    chapter: Technology
     author:
         - Ashok Reddy Singam
         - Anil Ravi
