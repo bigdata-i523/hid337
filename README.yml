@@ -46,7 +46,8 @@ paper2:
     url: https://github.com/bigdata-i523/hid337/paper2/report.pdf
 project:
     abstract: >
-       IoT and Big Data Analytics for Equipment Predictive Health Management (PHM)
+       IoT and Big Data Analytics for Equipment Predictive Health 
+       Management (PHM)
     author:
         - Ashok Reddy Singam
         - Anil Ravi
@@ -54,6 +55,8 @@ project:
         - 337
         - 333
     status: 5%
-    title: IoT and Big Data Analytics for Equipment Predictive Health Management (PHM)
+    title: >
+       IoT and Big Data Analytics for Equipment Predictive Health 
+       Management (PHM)
     type: latex
     url: https://github.com/bigdata-i523/hid337/project/
