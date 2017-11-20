@@ -29,6 +29,7 @@
 * 09/21/17 Tried to install texlive-full on Ubuntu but failed due to lack of space
 * 10/29/17 Working on wordcount experiment
 * 10/31/17 Completed wordcount program
+* 11/09/17 Completed Precision/recall experiment
 
 # Writing
 
