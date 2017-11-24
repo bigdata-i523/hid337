@@ -31,6 +31,7 @@
 * 10/31/17 Completed wordcount program
 * 11/09/17 Completed Precision/recall experiment
 * 11/12/17 Tried sample program to access oracle db from python 
+* 11/24/17 Completed crossvalidation experiment for KNN algorithm
 
 # Writing
 
