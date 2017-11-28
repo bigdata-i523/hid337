@@ -48,6 +48,7 @@
 * 11/03/17 - 11/05/17 - Worked on paper2. Submitted paper2
 * 11/18/17 Researching on Algorighms to use for final project
 * 11/23/17 Working on setups needed for final project
+* 11/24/17 - 12/03/17 - Working on the final project
 
 # Meetings
 
