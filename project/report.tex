@@ -1,5 +1,5 @@
 \documentclass[sigconf]{acmart}
-
+\usepackage{subcaption}
 \input{format/final}
 \begin{document}
 \title{IoT and Big Data Analytics for Equipment Predictive Health Management (PHM)}
@@ -31,7 +31,14 @@ In this application, the industrial rotating equipment such as compressors, vacu
 \keywords{i523, HID333, HID337, KNN, IoT, Big Data, Analytics}
 \maketitle
 \section{Introduction}
-The PHM technology can be put within a broader business context by relating it to the Product-Service System (PSS) business model. PSS can be defined as an integrated combination of products and services where the emphasis is put on the \lq sale of use \rq rather than the \lq sale of product \rq. Central to this new business model is a shift from selling a product, and its related spare parts as required, to selling a solution that supports a customer’s needs in the form of a service delivering a fully maintained and useable product \cite{Tonci2009}.
+The PHM technology can be put within a broader business context by relating it to the Product-Service System (PSS) business model. PSS can be defined as an integrated combination of products and services where the emphasis is put on the \lq sale of use \rq rather than the \lq sale of product \rq. Central to this new business model is a shift from selling a product, and its related spare parts as required, to selling a solution that supports customer needs in the form of a service delivering a fully maintained and useable product \cite{Tonci2009}. As shown in Figure 1, There are several wireless technologies such as 802.11, cellular, and short distance wireless protocols  can be used to collect and send data to the centralized servers.Also, data can be stored in cloud based technologies such as AWS, Microsoft Azure, IBM and Google etc. for processing. 
+
+
+\begin{figure}
+\includegraphics[width=1.0\columnwidth]{images/system_architecture}
+\caption{System Architecture} \label{fig:Figure1}
+\end{figure}
+
 
 \textbf{Problem Statement :} in the manufacturing operations, automotive and other process industries rotating equipment such as pumps, valves, compressors, and blowers are commonly used equipment for various purposes. These equipment are severely suffered from wear and tear, bearing degradation, shaft misalignment, corrosion, and other mechanical breakdowns. Due to the limitations of wireless enabled sensors based data acquisition it was very difficult to collect this data in the past. Also, due to real-time nature of the data acquisition, it was a huge challenge to store the data locally and process the information for applying machine learning algorithms. All these technological and infrastructure limitations caused industrial equipment health monitoring had become one of the sector businesses are losing the money due to operation shutdowns and unplanned maintenance etc.
 
@@ -49,13 +56,13 @@ In this application, commonly used equipment in industrial and automobile operat
 
 In general design, the frequency of data collection and storage depends on the number of parameters to be analyzed, cost of the system and operational behavior of the equipment. For this application, since products with rotating parts are considered, the critical parameters that would define the health of the equipment are: input or load current, internal ambient temperature, and vibration of the equipment.
 
-The PHM application design process is shown in Figure1, which describes various steps of the processes involved. For the implementation of this project, the sensor generated data is simulated using SQL scripts due to development time constraints. However, a detailed step-by-step approach is provided if we need to plug-in the sensor modules in to the application.
+The PHM application design process is shown in Figure 2, which describes various steps of the processes involved. For the implementation of this project, the sensor generated data is simulated using SQL scripts due to development time constraints. However, a detailed step-by-step approach is provided if we need to plug-in the sensor modules in to the application.
 
 
 
 \begin{figure}
 \includegraphics[width=1.0\columnwidth]{images/phm_process_1}
-\caption{PHM Design Process} \label{fig:Figure1}
+\caption{PHM Design Process} \label{fig:Figure2}
 \end{figure}
 
 
@@ -98,10 +105,10 @@ As emphasized above, predictive models evaluation needs to take domain specifici
 
 \begin{figure}
 \includegraphics[width=1.0\columnwidth]{images/ttf_1}
-\caption{Time relation between alert time and failure time} \label{fig:Figure2}
+\caption{Time relation between alert time and failure time} \label{fig:Figure3}
 \end{figure}
 
-As shown in the Figure2, the time to failure prediction will be estimated based on the classified result data set and alert the stakeholders to take relevant actions. The target alert zone will be identified based on the abnormal behavior of the equipment over the period.
+As shown in the Figure 3, the time to failure prediction will be estimated based on the classified result data set and alert the stakeholders to take relevant actions. The target alert zone will be identified based on the abnormal behavior of the equipment over the period.
 
 \section{Application Design Analysis}
 The PHM application in this project considered to use rotating equipment temperature, load current and vibration data for analyzing and predicting the future operational behavior. 
@@ -158,7 +165,7 @@ In this application, an average k-fold cross validation accuracy of 0.99 achieve
 In PHM systems big data is characterized by one or more 3Vs: volume, velocity and variety due to streaming of real-time IoT sensors. Most of the IoT systems present challenges in combinations of velocity and volume. The important feature of the IoT application is that by observing the behavior of \lq\lq many things\rq\rq it will be possible to gain important insights, optimize processes, etc. This requires storing all the events (velocity and volume challenge) to run analytical queries over the stored events and perform analytics (data mining and machine learning) over the data to gain insights.
 In general PHM applications, data will be collected through field sensors at specific rate which accounts for large amount of data per day in the order of multi-million records. This data will be stored in any NOSQL or RDBMS based database for storage and processing. Since the big data infrastructure is much reliable and available widely from multiple vendors, it would help to build complex PHM systems with large number of feature vectors for classification. 
 
-In this application, for the demonstration of the concept, the real vibration data from the compressor equipment has been collected via accelerometer sensors. This vibration data has been analyzed in time domain and established the labels based on the compressor design performance parameters. Later, this data analysis is used to design a SQL script for generating training and test data sets. However, the real-time PHM system will have continuous streaming of data coming from hundreds of devices at faster rates (in the order of milli seconds to tens of seconds). This data needs to be captured by reliable and scalable platforms such as AWS IoT or similar and use the machine learning algorithms to classify the unknown data.
+In this application, for the demonstration of the concept, the real vibration data from the compressor equipment has been collected via accelerometer sensors. This vibration data has been analyzed in time domain and established the labels based on the compressor design performance parameters. Later, this data analysis is used to design a SQL script for generating training and test data sets. However, the real-time PHM system will have continuous streaming of data coming from hundreds of devices at faster rates (in the order of milliseconds to tens of seconds). This data needs to be captured by reliable and scalable platforms such as AWS IoT or similar and use the machine learning algorithms to classify the unknown data.
 \subsection{PHM Dashboard}
 Once all the test data set has been classified in to appropriate labels, the prediction of the failure can be performed based on the trending of the equipment behavior over the period. In order to understand the equipment performance insight, following queries will be used on the classified data:
 \begin{itemize}
@@ -167,7 +174,28 @@ Once all the test data set has been classified in to appropriate labels, the pre
   \item Abnormal Behavior by Equipment Part Number
   \item Abnormal Behavior by Serial Number over the period range
 \end{itemize}
-There can be more application specific information obtained from classified data set to take various decisions. Following charts show the application data from this project.
+There can be more application specific information obtained from classified data set to take various decisions. Figure 4 shows various PHM data analytics for this project. Figure 4(a) displays all the serial numbers of equipment 1 with bearing degradation problems. The X axis gives serial numbers while the Y axis gives number of occurrences of bearing degradation for that particular serial number. Similarly Figure 4 (b) and 4 (c) give the details of over temperature and over current faults of various serial numbers.
+
+\begin{figure}
+
+\begin{subfigure}{0.9\linewidth}
+\includegraphics[width=1.0\columnwidth]{images/DEGRADE}
+\caption{Bearing Degradation} \label{sfig:sfig4a}
+\end{subfigure}
+
+\begin{subfigure}{0.9\linewidth}
+\includegraphics[width=1.0\columnwidth]{images/OVERTEMP}
+\caption{Over Temperature Fault} \label{sfig:sfig4b}
+\end{subfigure}
+
+\begin{subfigure}{0.9\linewidth}
+\includegraphics[width=1.0\columnwidth]{images/OVERCURR}
+\caption{Over current Fault} \label{sfig:sfig4c}
+\end{subfigure}
+
+\caption{PHM Data Analytics} \label{fig:Figure4}
+\end{figure}
+
 \subsection{Decision Alert Manager}
 Once the results data set has been generated by the prediction algorithm, and then based on the analytics queries, PHM system can send out the alert messages to appropriate stakeholders. The typical messages include the following s minimum:
 \begin{itemize}
@@ -177,7 +205,7 @@ Once the results data set has been generated by the prediction algorithm, and th
 \end{itemize}
 
 \subsection{Application Script}
-All the application specific python modules are captured in i523finalproject ipynb file which can be run from Jupyter notebook or Github. This application specific data has been created/generated on AWS cloud database, which will be accessed during the run time by python notebook.
+All the application specific python modules are captured in a ipynb file which can be run from Jupyter notebook or Github. The location of the file is described in appendix b. This application specific data has been created/generated on AWS cloud database, which will be accessed during the run time by python notebook.
 \section{Application Limitations}
 The PHM application developed in this project has several limitations. Typically, PHM applications suffer from the prediction accuracy rate which influences the ability to take decisions that will have broader impact on the business operations and financial aspects. However, with the advanced machine learning classifiers and model evaluation methods this can be addressed to achieve reasonable confidence. Following are some of the limitations of this application, which can be addressed and improved in large real-time PHM systems.
 
