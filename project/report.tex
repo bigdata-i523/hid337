@@ -175,16 +175,43 @@ Based on the performance shown, kNN has been selected to use for this applicatio
 \end{figure}
 
 \subsubsection{k Nearest Neighbor - kNN}
-\cite{Kevin2016} In this application, neighbors-based classification is chosen to classify the unknown instance to the known trained labels. Neighbors-based classification does not attempt to construct a general internal model, but simply stores instances of the training data. Classification is computed from a simple majority vote of the nearest neighbors of each point: a query point is assigned the data class which has the most representatives within the nearest neighbors of the point.
+\cite{Kevin2016} In this application, neighbors-based classification is chosen to classify the unknown instance to the known trained labels. Neighbors-based classification does not attempt to construct a general internal model, but simply stores instances of the training data.
+
+
+Classification is computed from a simple majority vote of the nearest neighbors of each point: a query point is assigned the data class which has the most representatives within the nearest neighbors of the point.
+
+
 KNN falls in the supervised learning family of algorithms. Informally, this means that we are given a labelled dataset consisting of training observations (x,y) and would like to capture the relationship between x and y. More formally, our goal is to learn a function h:X ->Y so that given an unseen observations x, h(x) can confidently predict the corresponding output y.
 
 
-In the classification setting, the K-nearest neighbor algorithm essentially boils down to forming a majority vote between the K most similar instances to a given \lq\lq unseen \rq\rq observation. Similarity is defined according to a distance metric between two data points. A popular choice is the Euclidean distance given by:\newline
+In the classification setting, the K-nearest neighbor algorithm essentially boils down to forming a majority vote between the K most similar instances to a given unseen observation. Similarity is defined according to a distance metric between two data points. A popular choice is the Euclidean distance given by:
+
+
 \[
 d(x,x')=\sqrt{(x1-x1\rq)^2+(x2-x2\rq)^2+...+(xn-xn\rq)^2}
-\]\newline
+\]
+
+
 But other measures can be more suitable for a given setting and include the Manhattan, Chebyshev and Hamming distance. 
 An alternate way of understanding KNN is by thinking about it as calculating a decision boundary (i.e. boundaries for more than 2 classes) which is then used to classify new points.
+
+In the application design, sci-kit open source python libraries are used for implementing the kNN algorithms. Scikit is built on NumPy, SciPy, and matplotlib. 
+
+The k-neighbors classification in KNeighborsClassifier is the more commonly used of the two techniques. The optimal choice of the value k is highly data-dependent: in general a larger k suppresses the effects of noise, but makes the classification boundaries less distinct.
+
+The sklearn.neighbors.KNeighborsClassifier class has the following methods, which are used in the application deisgn:
+
+\begin{itemize}
+\item {fit :} Fit the model using X as training data and y as target values.
+\item {get params :} Fit the model using X as training data and y as target values.
+\item {kneighbors :} Finds the K-neighbors of a point.
+\item {kneighbors graph :} Computes the (weighted) graph of k-Neighbors for points in X.
+\item {predict :} Predict the class labels for the provided data.
+\item {predict proba :} Return probability estimates for the test data X.
+\item {score :} Returns the mean accuracy on the given test data and labels.
+\item {set params :} Set the parameters of this estimator.
+\end{itemize}
+
 \subsubsection{K-fold cross-validation}
 To estimate the test error in the model, a cross-validation approach followed in which a subset of the training set will be holding out from the fitting process. This subset, called the validation set, can be used to select the appropriate level of flexibility of our algorithm. There are different validation approaches that are used in practice, and we will be exploring one of the more popular ones called \textbf{k-fold cross validation.}
 The k-fold cross validation (the k is totally unrelated to K) involves randomly dividing the training set into k groups, or folds, of approximately equal size. The first fold is treated as a validation set, and the method is fit on the remaining \(k-1\) folds. The misclassification rate is then computed on the observations in the held-out fold. This procedure is repeated k times; each time, a different group of observations is treated as a validation set. This process results in k estimates of the test error which are then averaged out. 
