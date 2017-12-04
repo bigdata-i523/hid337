@@ -67,7 +67,8 @@ The PHM application design process is shown in Figure 2, which describes various
 
 
 
-\textbf{Data Acquisition Stage:} this stage will be the core part of PHM application where vibration data were experimentally obtained from a compressor using triaxial accelerometer to collect transverse, longitudinal and vertical axes vibration signals. For the experimental data collection, ACC301A triaxial accelerometer and National Instruments data acquisition system was used. A total of 8 parameters (1) input current (2) input voltage (3) internal ambient temperature (4) external ambient temperature (5) transverse vibration (6) longitudinal vibration (7) vertical axis vibration and (8) acquisition time were captured at 1 second rate, which generated about 65000 records. This data has been analyzed for identifying the feature classification.
+\textbf{Data Acquisition Stage:} It is required to have a description of a machine behaving normally that can be used for
+early detection of anomalies. This calls for a proper characterization of machine health. As part of this process, various methods are identified to extract health information from vibration measurements and investigate strengths and weaknesses of these methods as health descriptors. This stage will be the core part of PHM application where vibration data were experimentally obtained from a compressor using triaxial accelerometer to collect transverse, longitudinal and vertical axes vibration signals. For the experimental data collection, ACC301A triaxial accelerometer and National Instruments data acquisition system was used. A total of 8 parameters (1) input current (2) input voltage (3) internal ambient temperature (4) external ambient temperature (5) transverse vibration (6) longitudinal vibration (7) vertical axis vibration and (8) acquisition time were captured at 1 second rate, which generated about 65000 records. This data has been analyzed for identifying the feature classification.
 
 \textbf{Pre Processing stage:} during this stage collected data will be filtered and processed for accuracy in order to adapt them to subsequent feature extraction stage. In this application, all the pre-processing has been done manually to validate the accuracy of the data based on the system conditions. Since spectral analysis of vibration signals are not done ( one of the limitations for this application, captured in the end), the data generated from the compressor is considered as the primary frequency of the equipment (which is isolated from the rest of the attachments).
 
@@ -148,7 +149,17 @@ The following database design architecture followed for Sensor Data Gen module:
 
 \subsection{Machine Learning Algorithm}
 \subsubsection{Classifier evaluation}
-Before choosing kNN Model for this project, we performed small experiment to try different models on training data. Below are the results we got. Based on these results we decided to use kNN model.
+Typical classifier evaluation methods include ROC Curves, Reject Curves,Precision-Recall Curves, and Statistical Tests. The statistical tests consists of following methods to perform evaluation:
+\begin{itemize}
+    \item Estimating the error rate of a classifier
+    \item Comparing two classifiers
+    \item Estimating the error rate of a learning algorithm
+    \item Comparing two algorithms
+\end{itemize}
+
+Out of the listed statistical tests, the error rate estimation method is used in this application to evaluate the performance. An experimental data is used to estimate the error rate or accuracy of various classifiers. Then a comparison has been made to choose the classifier to use in the application.
+
+The following list of performance for various classifiers is observed during the accuracy calculation. The same set of training data has been used for all the classifiers, which has resulted the following performance.
 \begin{itemize}
 \item LogisticRregression: 0.963636 (0.044536)
 \item KNN: 0.981818 (0.036364)
@@ -156,8 +167,10 @@ Before choosing kNN Model for this project, we performed small experiment to try
 \item SVM: 0.972727 (0.041660)
 \end{itemize}
 
+Based on the performance shown, kNN has been selected to use for this application.
+
 \begin{figure}
-\includegraphics[width=1.0\columnwidth]{images/algperformance}
+\includegraphics[width=0.9\columnwidth]{images/algperformance}
 \caption{Algorithm performance} \label{fig:Figure5}
 \end{figure}
 
@@ -275,7 +288,6 @@ In this project, the problem statement around industrial rotating equipment main
 
 \section{Code Reference}
 All code, notebooks and files for this project can be found in the githup repository:
-
 \url{https://github.com/bigdata-i523/hid337/blob/master/project/jupyter}
 
 
