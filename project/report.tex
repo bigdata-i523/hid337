@@ -1,7 +1,5 @@
 \documentclass[sigconf]{acmart}
-\usepackage{graphicx}
-\DeclareGraphicsExtensions{.png,.jpg,.pdf}
-\graphicspath{ {images/} }
+
 \input{format/final}
 \begin{document}
 \title{IoT and Big Data Analytics for Equipment Predictive Health Management (PHM)}
@@ -96,14 +94,12 @@ The following sections will describe the architectural and design aspects of the
 \cite{Saxena2009} The prediction is typically performed only after the \lq\lq health \rq\rq of the component or system deteriorates beyond a certain threshold. In this application, faults and failures are identified in the training data set. The faults identified are: Over current fault, over temperature fault and over voltage fault. If over current fault is occurred, the equipment will tend to draw higher current than nominal values which if continued further several times eventually leads to a permanent failure of the equipment. In this application, when motor bearing starts degrading, the first observation will be over current followed by over temperature conditions.
 Often times, that threshold is tripped because a fault occurs. A fault is a state of a component or system that deviates from the normal state such that the integrity of the component is outside of its required specification. A fault does not necessarily imply that the overall system does not operate anymore; however, the damage that characterizes the fault often grows under the influence of operations to a failure. The latter is the state at which the component or system does not meet its desired function anymore. It is the task of prognostics to estimate the time that it takes from the current time to the failed state, conditional on anticipated future usage. This would give operators access to information that has significant implications on system safety or cost of operations. Where safety is impacted, the ability to predict failure allows operators to take action that preserves the assets either through rescue operation or through remedial action that avert failure altogether. Where minimizing cost of operations is the primary objective, predictive information allows operators to avert secondary damage, or to perform maintenance in the most cost-effective fashion. Often times, there is a mix of objectives that need to be optimized together, sometimes weighted by different preferences.
 
-As emphasized above, predictive models evaluation needs to take domain specificities into account. Such specificities cover two aspects: capability of failure prediction and TTF estimation. From the point of view of TTF, it is desirable that a predictive model can generate alerts in a \lq\lq targeted \rq\rq time window prior to a failure. A model that predicts a failure too early leads to non-optimal component use \cite{Yang2014} which will impact the reliability or availability of the system.\newline
-
+As emphasized above, predictive models evaluation needs to take domain specificities into account. Such specificities cover two aspects: capability of failure prediction and TTF estimation. From the point of view of TTF, it is desirable that a predictive model can generate alerts in a \lq\lq targeted \rq\rq time window prior to a failure. A model that predicts a failure too early leads to non-optimal component use \cite{Yang2014} which will impact the reliability or availability of the system.
 
 \begin{figure}
 \includegraphics[width=1.0\columnwidth]{images/ttf_1}
 \caption{Time relation between alert time and failure time} \label{fig:Figure2}
 \end{figure}
-
 
 As shown in the Figure2, the time to failure prediction will be estimated based on the classified result data set and alert the stakeholders to take relevant actions. The target alert zone will be identified based on the abnormal behavior of the equipment over the period.
 
@@ -218,11 +214,20 @@ In this project, the problem statement around industrial rotating equipment main
 \end{itemize}
 \subsection{HID 337:Ashok Reddy Singam}
 \begin{itemize}
-  \item Designed and implemented sensor data generation SQL script.
+  \item Implemented sensor data generation SQL script.
   \item Implemented kNN algorithm in Python
   \item Implemented k-fold cross validation design
   \item Created data analytics charts
   \item Reviewed the draft project report.
 \end{itemize}
+
+\section{Code Reference}
+All code, notebooks and files for this project can be found in the githup repository:
+
+
+\url{https://github.com/bigdata-i523/hid337/blob/master/project/jupyter}
+
+
+
 
 \end{document}
