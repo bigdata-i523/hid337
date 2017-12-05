@@ -46,8 +46,16 @@ paper2:
     url: https://github.com/bigdata-i523/hid337/paper2/report.pdf
 project:
     abstract: >
-       IoT and Big Data Analytics for Equipment Predictive Health
-       Management (PHM)
+      Not monitoring and gaining insight in to the industrial equipment
+      in-service operational behavior has been the biggest bottleneck
+      so far, which can be mitigated by using the latest IoT
+      technologies. The idea is to collect the critical operational
+      parameter data such as vibration, temperature, and load current
+      from industrial equipment (compressors, vacuum generators,
+      pumps, valves and any other rotating equipment applications etc)
+      and perform failure prediction analysis using machine learning
+      classification algorithms.
+      
     chapter: Technology
     author:
         - Ashok Reddy Singam
