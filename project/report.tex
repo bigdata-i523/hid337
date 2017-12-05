@@ -1,6 +1,5 @@
 \documentclass[sigconf]{acmart}
-\usepackage{subcaption}
-\input{format/i523}
+\input{format/final}
 \begin{document}
 \title{IoT and Big Data Analytics for Equipment Predictive Health Management (PHM)}
 \author{Ashok Reddy Singam}
@@ -28,7 +27,7 @@ The predictive health management (PHM) is an enabling discipline consisting of t
 
 In this application, the industrial rotating equipment such as compressors, vacuum blowers, pumps, and valves etc. are considered to monitor and analyze their operational behavior. The product critical operational parameter data such as vibration, temperature, and load current will be collected from field sensors and analyzed to predict the failure using kNN machine learning classification algorithms. The data will be collected from the field using wireless sensors and stored on the cloud based AWS database server. The product data will be analyzed and made available to all stake holders to take appropriate preventive actions via web/mobile applications.
 \end{abstract}
-\keywords{i523, HID337, HID333, KNN, IoT, Big Data, Analytics}
+\keywords{i523, HID333, HID337, KNN, IoT, Big Data, Analytics}
 \maketitle
 \section{Introduction}
 The PHM technology can be put within a broader business context by relating it to the Product-Service System (PSS) business model. PSS can be defined as an integrated combination of products and services where the emphasis is put on the \lq sale of use \rq rather than the \lq sale of product \rq. Central to this new business model is a shift from selling a product, and its related spare parts as required, to selling a solution that supports customer needs in the form of a service delivering a fully maintained and useable product \cite{Tonci2009}. As shown in Figure 1, There are several wireless technologies such as 802.11, cellular, and short distance wireless protocols  can be used to collect and send data to the centralized servers.Also, data can be stored in cloud based technologies such as AWS, Microsoft Azure, IBM and Google etc. for processing. 
@@ -172,7 +171,7 @@ Based on the performance shown, kNN has been selected to use for this applicatio
 
 \begin{figure}
 \includegraphics[width=0.9\columnwidth]{images/algperformance}
-\caption{Algorithm performance} \label{fig:Figure5}
+\caption{Algorithm performance} \label{fig:Figure4}
 \end{figure}
 
 \subsubsection{k Nearest Neighbor - kNN}
@@ -230,28 +229,24 @@ Once all the test data set has been classified in to appropriate labels, the pre
   \item Abnormal Behavior by Equipment Part Number
   \item Abnormal Behavior by Serial Number over the period range
 \end{itemize}
-There can be more application specific information obtained from classified data set to take various decisions. Figure 4 shows various PHM data analytics for this project. Figure 4(a) displays all the serial numbers of equipment 1 with bearing degradation problems. The X axis gives serial numbers while the Y axis gives number of occurrences of bearing degradation for that particular serial number. Similarly Figure 4 (b) and 4 (c) give the details of over temperature and over current faults of various serial numbers.
+There can be more application specific information obtained from classified data set to take various decisions. Figures 5, 6 and 7 show various PHM data analytics for this project. Figure 5 displays all the serial numbers of equipment 1 with bearing degradation problems. The X axis gives serial numbers while the Y axis gives number of occurrences of bearing degradation for that particular serial number. Similarly Figure 6 and Figure 7 give the details of over temperature and over current faults of various serial numbers.
 
 As part of data visualization, result data file is queried based on the analytics metrics interested. The python matplotlib package has been used to draw the charts as needed for showing the analytics. In real world application, a more sophisticated business intelligence tools such as Tableau, Microsoft BI, and Amazon Quick Sight can be used to show the PHM dashboards. These dashboards are targeted for business users so that they will be able to customize the views, add filters and drill down in to specific information as needed. 
 
+
 \begin{figure}
-
-\begin{subfigure}{0.9\linewidth}
 \includegraphics[width=1.0\columnwidth]{images/DEGRADE}
-\caption{Bearing Degradation} \label{sfig:sfig4a}
-\end{subfigure}
+\caption{Bearing Degradation} \label{fig:Figure5}
+\end{figure}
 
-\begin{subfigure}{0.9\linewidth}
+\begin{figure}
 \includegraphics[width=1.0\columnwidth]{images/OVERTEMP}
-\caption{Over Temperature Fault} \label{sfig:sfig4b}
-\end{subfigure}
+\caption{Over Temperature Fault} \label{fig:Figure6}
+\end{figure}
 
-\begin{subfigure}{0.9\linewidth}
+\begin{figure}
 \includegraphics[width=1.0\columnwidth]{images/OVERCURR}
-\caption{Over current Fault} \label{sfig:sfig4c}
-\end{subfigure}
-
-\caption{PHM Data Analytics} \label{fig:Figure4}
+\caption{Over current Fault} \label{fig:Figure7}
 \end{figure}
 
 \subsection{Decision Alerts}
