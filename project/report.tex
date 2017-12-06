@@ -134,15 +134,21 @@ The following database design architecture followed for Sensor Data Gen module:
 \end{itemize}
 \item Views
 \begin{itemize}
-\item SENSOR TRAIN DATA VIEW 
+\item SENSOR TRAIN DATA VIEW:
+      Created View on top of SENSOR TRAIN DATA with logic to translate string label data into numbers
 \item SENSOR TEST DATA VIEW
+      Created View on top of SENSOR TEST DATA with logic to translate string label data into numbers
 \end{itemize}
 \item Packages BIG DATA 503 PRJ PKG
 \begin{itemize}
-\item Generate Test Set
-\item Generate Train Set
-\item Delete Data Set
-\item Update Test Data Labels
+\item Generate Test Set:
+      Pl/Sql procedure to insert sensor test data into SENSOR TRAIN DATA table
+\item Generate Train Set:
+      Pl/Sql procedure to insert sensor train data into SENSOR TRAIN DATA table
+\item Delete Data Set:
+      Pl/Sql procedure to delete all training and test data.
+\item Update Test Data Labels:
+      Pl/Sql procedure to update SENSOR TRAIN DATA table with KNN algorithm predicted label values
 \end{itemize}
 \end{itemize}
 \end{itemize}
@@ -170,7 +176,7 @@ The following list of performance for various classifiers is observed during the
 Based on the performance as shown in Figure (\ref{fig:Figure4}), kNN has been selected to use for this application. 
 
 \begin{figure}
-\includegraphics[width=0.9\columnwidth]{images/algperformance}
+\includegraphics[width=1.0\columnwidth]{images/algperformance}
 \caption{Algorithm performance} \label{fig:Figure4}
 \end{figure}
 
@@ -214,7 +220,12 @@ The sklearn.neighbors.KNeighborsClassifier class has the following methods, whic
 To estimate the test error in the model, a cross-validation approach followed in which a subset of the training set will be holding out from the fitting process. This subset, called the validation set, can be used to select the appropriate level of flexibility of our algorithm. There are different validation approaches that are used in practice, and we will be exploring one of the more popular ones called \textbf{k-fold cross validation.}
 The k-fold cross validation (the k is totally unrelated to K) involves randomly dividing the training set into k groups, or folds, of approximately equal size. The first fold is treated as a validation set, and the method is fit on the remaining \(k-1\) folds. The misclassification rate is then computed on the observations in the held-out fold. This procedure is repeated k times; each time, a different group of observations is treated as a validation set. This process results in k estimates of the test error which are then averaged out. 
 
-In this application, an average k-fold cross validation accuracy of 0.99 achieved, which is explained in the appendix section of the report.
+In this application, an average k-fold cross validation accuracy of 0.99 achieved, which is explained in the appendix section of the report. Figure(\ref{fig:Figure8}) shows Classification and Confusion report output obtained from the KNN model we used for this project.
+
+\begin{figure}
+\includegraphics[width=1.0\columnwidth]{images/knnclassification}
+\caption{KNN Classification and Confusion matrix report} \label{fig:Figure8}
+\end{figure}
 
 \subsection{Big Data and IoT}
 In PHM systems big data is characterized by one or more 3Vs: volume, velocity and variety due to streaming of real-time IoT sensors. Most of the IoT systems present challenges in combinations of velocity and volume. The important feature of the IoT application is that by observing the behavior of \lq\lq many things\rq\rq it will be possible to gain important insights, optimize processes, etc. This requires storing all the events (velocity and volume challenge) to run analytical queries over the stored events and perform analytics (data mining and machine learning) over the data to gain insights.
@@ -268,12 +279,21 @@ In this application all the unseen test data is classified and labeled in the re
 
 \subsection{Application Script}
 All the application specific python modules are captured in a ipynb file which can be run from Jupyter notebook or Github. The location of the file is described in appendix b. This application specific data has been created/generated on AWS cloud database, which will be accessed during the run time by python notebook.
+
+\subsection{Python - Oracle Interface}
+For this project we used python library called \textbf{cxOracle} \cite{OracleOTN} to enable access to Oracle Database. It can be installed easily using \textbf{pip} and it supports both Python 2 and 3. This library supports:
+\begin{itemize}
+  \item SQL and PL/SQL Execution. The underlying Oracle Client libraries have significant optimizations including compressed fetch, pre-fetching, client and server result set caching, and statement caching with auto-tuning.
+  \item Extensive Oracle data type support, including large object support like CLOB and BLOB)
+  \item Batch operations for efficient INSERT and UPDATEs
+\end{itemize}
+
 \section{Application Limitations}
 The PHM application developed in this project has several limitations. Typically, PHM applications suffer from the prediction accuracy rate which influences the ability to take decisions that will have broader impact on the business operations and financial aspects. However, with the advanced machine learning classifiers and model evaluation methods this can be addressed to achieve reasonable confidence. Following are some of the limitations of this application, which can be addressed and improved in large real-time PHM systems.
 
-\textbf{Data acquisition hardware :} in this application the data is not collected from real-time sensors for voltage, current, temperature and vibration data. There will be inherent accuracy in the raw data generated by SQL script. However, a sample vibration dataset has been collected from the field, which is used as basis to generate the simulated data set.
+\textbf{Data acquisition hardware:} in this application the data is not collected from real-time sensors for voltage, current, temperature and vibration data. There will be inherent accuracy in the raw data generated by SQL script. However, a sample vibration dataset has been collected from the field, which is used as basis to generate the simulated data set.
 
-\textbf{Feature extraction analysis :} the equipment performance parameters of interest need to be down selected from large set of incoming parameter data. 
+\textbf{Feature extraction analysis:} the equipment performance parameters of interest need to be down selected from large set of incoming parameter data. 
 
 
 When analyzing vibration data in the time domain only few parameters are available in quantifying the strength of a vibration profile: amplitude, peak-to-peak value, and RMS.  
@@ -284,16 +304,16 @@ This requires in-depth domain specific analysis, in this case a detailed mathema
 
 \textbf{Model accuracy and scoring :} the kNN algorithm used in this application validated using k-cross fold cross-validation. There are several other model evaluation and scoring methods such as accuracy (or error rate), True Positive Rate (TPR), False Positive Rate (FPR), False Negative Rate (FNR), True Negative Rate (TNR), sensitivity etc. These metrics provide a simple and effective way to measure the performance of a classifier. This application can be further improved by applying more performance measurement methods to increase the effectiveness of the algorithm design.   
 
-\textbf{Scalability :} the application designed in this project is very primitive to understand the basic concepts of PHM and kNN classifier implementation. This application cannot be used for PHM application in business use. To implement real world PHM application, a more comprehensive design needed by considering modularity, service oriented architecture, large number of sensors integration, big data and analytics integration etc.
+\textbf{Scalability:} the application designed in this project is very primitive to understand the basic concepts of PHM and kNN classifier implementation. This application cannot be used for PHM application in business use. To implement real world PHM application, a more comprehensive design needed by considering modularity, service oriented architecture, large number of sensors integration, big data and analytics integration etc.
 
 \section{Recommendations}
-\textbf{Generality :} since each rotating equipment vibrates in a different manner, a monitoring method needs to be retrained for each machine. The training on several repeated measurements on several similar equipment in several operating modes may allow for a more general monitoring method.
+\textbf{Generality:} since each rotating equipment vibrates in a different manner, a monitoring method needs to be retrained for each machine. The training on several repeated measurements on several similar equipment in several operating modes may allow for a more general monitoring method.
 
-\textbf{Feature extraction and dimensionality :} In this application it has been assumed that a proper feature (selection) has been chosen, such that the feature dimensionality is not too high. If the data lies in a subspace, application of an initial dimensionality reduction may be a good idea. It is highly recommended to perform spectral analysis on vibration data and identify various fault frequencies and their sources. This would help to extract the optimized feature vectors for the given application followed by selecting the more relevant ones. 
+\textbf{Feature extraction and dimensionality:} In this application it has been assumed that a proper feature (selection) has been chosen, such that the feature dimensionality is not too high. If the data lies in a subspace, application of an initial dimensionality reduction may be a good idea. It is highly recommended to perform spectral analysis on vibration data and identify various fault frequencies and their sources. This would help to extract the optimized feature vectors for the given application followed by selecting the more relevant ones. 
 
-\textbf{Model evaluation :} classifier accuracy and effectiveness will be varied based on the test data set. It is highly recommended to evaluate multiple models with appropriate test data to choose the best classifier for the given application.
+\textbf{Model evaluation:} classifier accuracy and effectiveness will be varied based on the test data set. It is highly recommended to evaluate multiple models with appropriate test data to choose the best classifier for the given application.
 
-\textbf{Domain specific modeling :} It is highly recommended to perform more and more domain-oriented feature vector analysis to meet the needs of predictive model evaluation for PHM applications. Domain-oriented approaches helpful and useful in evaluating classifier for applications. Generic evaluation methods could help developers in investigating overall performance of a model from the statistical viewpoint at the initial stage of model development. Domain-oriented approaches should be further used to evaluate the usefulness and business value \cite{Yang2014}.  
+\textbf{Domain specific modeling:} It is highly recommended to perform more and more domain-oriented feature vector analysis to meet the needs of predictive model evaluation for PHM applications. Domain-oriented approaches helpful and useful in evaluating classifier for applications. Generic evaluation methods could help developers in investigating overall performance of a model from the statistical viewpoint at the initial stage of model development. Domain-oriented approaches should be further used to evaluate the usefulness and business value \cite{Yang2014}.  
 
 \section{Conclusion}
 In this project, the problem statement around industrial rotating equipment maintenance is described and solution principle to address the same using PHM concept is defined, experimented and results are discussed. Since this application is developed to prove the only concept but not the complete solution a section with limitations and recommendations for real world system development is described. Overall, PHM application with kNN classifier algorithm and cross validation accuracy of 0.99 has been implemented, verified and results are analyzed for business decisions.
