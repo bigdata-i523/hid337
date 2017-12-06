@@ -240,11 +240,11 @@ Once all the test data set has been classified in to appropriate labels, the pre
   \item Abnormal Behavior by Equipment Part Number
   \item Abnormal Behavior by Serial Number over the period range
 \end{itemize}
-There can be more application specific information obtained from classified data set to take various decisions. Figures 5, 6 and 7 show various PHM data analytics for this project. Figure 5 displays all the serial numbers of equipment 1 with bearing degradation problems. The X axis gives serial numbers while the Y axis gives number of occurrences of bearing degradation for that particular serial number. Similarly Figure 6 and Figure 7 give the details of over temperature and over current faults of various serial numbers.
+There can be more application specific information obtained from classified data set to take various decisions. Figure(\ref{fig:Figure5}), figure(\ref{fig:Figure6}) and figure(\ref{fig:Figure7}) show various PHM data analytics for this project. Figure(\ref{fig:Figure5}) displays all the serial numbers of equipment 1 with bearing degradation problems. The X axis gives serial numbers while the Y axis gives number of occurrences of bearing degradation for that particular serial number. Similarly figure(\ref{fig:Figure6}) and figure(\ref{fig:Figure7}) give the details of over temperature and over current faults of various serial numbers.
 
 As part of data visualization, result data file is queried based on the analytics metrics interested. The python matplotlib package has been used to draw the charts as needed for showing the analytics. In real world application, a more sophisticated business intelligence tools such as Tableau, Microsoft BI, and Amazon Quick Sight can be used to show the PHM dashboards. These dashboards are targeted for business users so that they will be able to customize the views, add filters and drill down in to specific information as needed. 
 
-Sample screen shots for the following scenarios are included:
+Sample screen shots for the following scenarios are included from python code output:
 
 \begin{itemize}
   \item Bearing Degraded Serial numbers for Equipment Part Number1: Figure (\ref{fig:Figure5})
@@ -319,7 +319,7 @@ This requires in-depth domain specific analysis, in this case a detailed mathema
 In this project, the problem statement around industrial rotating equipment maintenance is described and solution principle to address the same using PHM concept is defined, experimented and results are discussed. Since this application is developed to prove the only concept but not the complete solution a section with limitations and recommendations for real world system development is described. Overall, PHM application with kNN classifier algorithm and cross validation accuracy of 0.99 has been implemented, verified and results are analyzed for business decisions.
 \begin{acks}
 
-  The authors would like to thank professor Gregor von Laszewski and his team for providing \textit{LaTex} templates and assistance with the \textit{JabRef} tool to organize references.
+  The authors would like to thank professor Gregor von Laszewski and his team for providing \textit{LaTex} templates, assistance with the \textit{JabRef} tool and in helping to fix compile issues with latex and yaml formats.
 
 \end{acks}
 
