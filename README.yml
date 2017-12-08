@@ -19,11 +19,12 @@ paper1:
         about highlevel architecture of an intelligent security system with
         video surveillance, audio monitoring/recording, video and
         Audio analytics, alerting homeowners/authorities/agencies as needed.
-    url: https://github.com/bigdata-i523/hid337/paper1/report.pdf
+    url: https://github.com/bigdata-i523/hid337/paper1/
     type: latex
     status: Nov 01 17 100%
     chapter: Security
 paper2:
+    exclude: True
     review: Nov 6 2017
     abstract: >
         Automatic speech recognition (ASR) and natural language processing
@@ -43,18 +44,18 @@ paper2:
     title: >
       Natural Language Processing (NLP) to Analyze Human Speech Data
     type: latex
-    url: https://github.com/bigdata-i523/hid337/paper2/report.pdf
+    url: https://github.com/bigdata-i523/hid337/paper2/
 project:
     abstract: >
-      Not monitoring and gaining insight in to the industrial equipment
-      in-service operational behavior has been the biggest bottleneck
-      so far, which can be mitigated by using the latest IoT
-      technologies. The idea is to collect the critical operational
-      parameter data such as vibration, temperature, and load current
-      from industrial equipment (compressors, vacuum generators,
-      pumps, valves and any other rotating equipment applications etc)
-      and perform failure prediction analysis using machine learning
-      classification algorithms.
+        Not monitoring and gaining insight in to the industrial equipment
+        in-service operational behavior has been the biggest bottleneck
+        so far, which can be mitigated by using the latest IoT
+        technologies. The idea is to collect the critical operational
+        parameter data such as vibration, temperature, and load current
+        from industrial equipment (compressors, vacuum generators,
+        pumps, valves and any other rotating equipment applications etc)
+        and perform failure prediction analysis using machine learning
+        classification algorithms.
     chapter: Health
     author:
         - Ashok Reddy Singam
@@ -67,4 +68,4 @@ project:
        IoT and Big Data Analytics for Equipment Predictive Health
        Management (PHM)
     type: project
-    url: https://github.com/bigdata-i523/hid337/project/report.pdf
+    url: https://github.com/bigdata-i523/hid337/project/
