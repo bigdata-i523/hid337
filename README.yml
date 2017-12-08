@@ -24,7 +24,6 @@ paper1:
     status: Nov 01 17 100%
     chapter: Security
 paper2:
-    exclude: True
     review: Nov 6 2017
     abstract: >
         Automatic speech recognition (ASR) and natural language processing
