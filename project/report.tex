@@ -187,7 +187,7 @@ Based on the performance as shown in Figure (\ref{fig:Figure4}), kNN has been se
 Classification is computed from a simple majority vote of the nearest neighbors of each point: a query point is assigned the data class which has the most representatives within the nearest neighbors of the point.
 
 
-KNN falls in the supervised learning family of algorithms. Informally, this means that we are given a labelled dataset consisting of training observations (x,y) and would like to capture the relationship between x and y. More formally, our goal is to learn a function h:X ->Y so that given an unseen observations x, h(x) can confidently predict the corresponding output y.
+KNN falls in the supervised learning family of algorithms. Informally, this means that we are given a labelled dataset consisting of training observations (x,y) and would like to capture the relationship between x and y. More formally, our goal is to learn a function \[h:X ->Y\] so that given an unseen observations x, h(x) can confidently predict the corresponding output y.
 
 
 In the classification setting, the K-nearest neighbor algorithm essentially boils down to forming a majority vote between the K most similar instances to a given unseen observation. Similarity is defined according to a distance metric between two data points. A popular choice is the Euclidean distance given by:
@@ -203,7 +203,7 @@ An alternate way of understanding KNN is by thinking about it as calculating a d
 
 In the application design, sci-kit open source python libraries are used for implementing the kNN algorithms. Scikit is built on NumPy, SciPy, and matplotlib. The k-neighbors classification in KNeighborsClassifier is the more commonly used of the two techniques. The optimal choice of the value k is highly data-dependent: in general a larger k suppresses the effects of noise, but makes the classification boundaries less distinct.
 
-The sklearn.neighbors.KNeighborsClassifier class has the following methods, which are used in the application deisgn:
+The sklearn.neighbors.KNeighborsClassifier class has the following methods, which are used in the application design:
 
 \begin{itemize}
 \item fit: Fit the model using X as training data and y as target values.
@@ -220,7 +220,7 @@ The sklearn.neighbors.KNeighborsClassifier class has the following methods, whic
 To estimate the test error in the model, a cross-validation approach followed in which a subset of the training set will be holding out from the fitting process. This subset, called the validation set, can be used to select the appropriate level of flexibility of our algorithm. There are different validation approaches that are used in practice, and we will be exploring one of the more popular ones called \textbf{k-fold cross validation.}
 The k-fold cross validation (the k is totally unrelated to K) involves randomly dividing the training set into k groups, or folds, of approximately equal size. The first fold is treated as a validation set, and the method is fit on the remaining \(k-1\) folds. The misclassification rate is then computed on the observations in the held-out fold. This procedure is repeated k times; each time, a different group of observations is treated as a validation set. This process results in k estimates of the test error which are then averaged out. 
 
-In this application, an average k-fold cross validation accuracy of 0.99 achieved, which is explained in the appendix section of the report. Figure(\ref{fig:Figure8}) shows Classification and Confusion report output obtained from the KNN model we used for this project.
+In this application, an average k-fold cross validation accuracy of 0.99 percent achieved, which is explained in the appendix section of the report. Figure(\ref{fig:Figure8}) shows Classification and Confusion report output obtained from the KNN model we used for this project.
 
 \begin{figure}
 \includegraphics[width=1.0\columnwidth]{images/knnclassification}
@@ -286,6 +286,14 @@ For this project we used python library called \textbf{cxOracle} \cite{OracleOTN
   \item SQL and PL/SQL Execution. The underlying Oracle Client libraries have significant optimizations including compressed fetch, pre-fetching, client and server result set caching, and statement caching with auto-tuning.
   \item Extensive Oracle data type support, including large object support like CLOB and BLOB)
   \item Batch operations for efficient INSERT and UPDATEs
+\end{itemize}
+
+In the following scenarios we used \textbf{cxOracle} libraries:
+
+\begin{itemize}
+  \item To read sensor training data from Oracle database
+  \item To read sensor test data from Oracle database
+  \item After classification of labels, to update test data with classified labels
 \end{itemize}
 
 \section{Application Limitations}
