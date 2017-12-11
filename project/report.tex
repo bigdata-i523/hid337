@@ -43,7 +43,14 @@ The PHM technology can be put within a broader business context by relating it t
 
 \textbf{Solution Approach:} with the wireless sensors and cloud based server technologies, it has become possible to deploy hundreds of sensors in the manufacturing plant and collect the data and store with minimal costs. Once the data is stored on the servers with high computing power, machine learning algorithms can be used to process the sensor data to predict the equipment failures with reasonable accuracy. This approach has been named as predictive or prognostics health management of the equipment which is widely available in the recent times due to the availability of technological infrastructure.
 
-The PHM generally combines sensing, collecting, storing and analyzing of environmental, operational, and performance related parameters to assess the health of a product and predict remaining useful life. Assessing the health of a product provides information that can be used to meet several critical goals: (1) providing advance warning of failures; (2) minimizing unscheduled maintenance, extending maintenance cycles, and maintaining effectiveness through timely repair actions; (3) reducing the life cycle cost of equipment by decreasing inspection costs, downtime, and inventory; and (4) improving qualification and assisting in the design and logistical support of fielded and future systems \cite{Shunfeng2010}.
+The PHM generally combines sensing, collecting, storing and analyzing of environmental, operational, and performance related parameters to assess the health of a product and predict remaining useful life. Assessing the health of a product provides information that can be used to meet several critical goals \cite{Shunfeng2010}: 
+
+\begin{itemize}
+\item Providing advance warning of failures
+\item Minimizing unscheduled maintenance, extending maintenance cycles, and maintaining effectiveness through timely repair actions
+\item Reducing the life cycle cost of equipment by decreasing inspection costs, downtime, and inventory
+\item improving qualification and assisting in the design and logistical support of fielded and future systems
+\end{itemize}
 
 The PHM is not a new concept, however, with the advent of sensors, machine learning algorithms, and computing capacity of the servers it has become more prevalent in the recent days. In this application, an attempt has been made to prove the concept of simple PHM implementation and use in real world applications. The application can be re-architected to address more complex products/systems with considerations of scalability, performance, cost and reliability. The limitations of the current application are described in the end of this report.
 
@@ -67,9 +74,20 @@ The PHM application design process is shown in Figure (\ref{fig:Figure2}), which
 
 
 \textbf{Data Acquisition Stage:} It is required to have a description of a machine behaving normally that can be used for
-early detection of anomalies. This calls for a proper characterization of machine health. As part of this process, various methods are identified to extract health information from vibration measurements and investigate strengths and weaknesses of these methods as health descriptors. This stage will be the core part of PHM application where vibration data were experimentally obtained from a compressor using triaxial accelerometer to collect transverse, longitudinal and vertical axes vibration signals. For the experimental data collection, ACC301A triaxial accelerometer and National Instruments data acquisition system was used. A total of 8 parameters (1) input current (2) input voltage (3) internal ambient temperature (4) external ambient temperature (5) transverse vibration (6) longitudinal vibration (7) vertical axis vibration and (8) acquisition time were captured at 1 second rate, which generated about 65000 records. This data has been analyzed for identifying the feature classification.
+early detection of anomalies. This calls for a proper characterization of machine health. As part of this process, various methods are identified to extract health information from vibration measurements and investigate strengths and weaknesses of these methods as health descriptors. This stage will be the core part of PHM application where vibration data were experimentally obtained from a compressor using triaxial accelerometer to collect transverse, longitudinal and vertical axes vibration signals. For the experimental data collection, ACC301A triaxial accelerometer and National Instruments data acquisition system was used. A total of 8 parameters 
+\begin{enumerate}
+\item Input Current
+\item Input Voltage
+\item Internal ambient temperature
+\item External ambient temperature
+\item Transverse vibration
+\item Longitudinal vibration 
+\item Vertical axis vibration
+\item Acquisition time
+\end{enumerate}
+were captured at one second rate, which generated about 65000 records. This data has been analyzed for identifying the feature classification.
 
-\textbf{Pre Processing stage:} during this stage collected data will be filtered and processed for accuracy in order to adapt them to subsequent feature extraction stage. In this application, all the pre-processing has been done manually to validate the accuracy of the data based on the system conditions. Since spectral analysis of vibration signals are not done ( one of the limitations for this application, captured in the end), the data generated from the compressor is considered as the primary frequency of the equipment (which is isolated from the rest of the attachments).
+\textbf{Pre Processing stage:} During this stage collected data will be filtered and processed for accuracy in order to adapt them to subsequent feature extraction stage. In this application, all the pre-processing has been done manually to validate the accuracy of the data based on the system conditions. Since spectral analysis of vibration signals are not done ( one of the limitations for this application, captured in the end), the data generated from the compressor is considered as the primary frequency of the equipment (which is isolated from the rest of the attachments).
 
 \textbf{Feature extraction and selection stage:} during this stage domain specific vibration spectral analysis has been performed but only considered time-domain behavior for various system operational conditions such as increased load, modified input voltage, and modified external ambient temperature etc. Based on the response of the machine vibration to various external conditions were noted down. This data is used to identify the following feature vectors.
 \begin{itemize}
@@ -165,12 +183,12 @@ Typical classifier evaluation methods include ROC Curves, Reject Curves,Precisio
 
 Out of the listed statistical tests, the error rate estimation method is used in this application to evaluate the performance. An experimental data is used to estimate the error rate or accuracy of various classifiers. Then a comparison has been made to choose the classifier to use in the application.
 
-The following list of performance for various classifiers is observed during the accuracy calculation. The same set of training data has been used for all the classifiers, which has resulted the following performance.
+The following list of performance for various classifiers is observed during the accuracy calculation. The same set of training data has been used for all the classifiers, which has resulted the following performance. All values are mentioned in percents between 0 to 1, 1 means 100 percent accuracy.
 \begin{itemize}
-\item LogisticRregression: 0.963636 (0.044536)
-\item KNN: 0.981818 (0.036364)
-\item DecisionTreeClassifier: 0.964394 (0.059656)
-\item SVM: 0.972727 (0.041660)
+\item LogisticRregression: 0.963636 
+\item KNN: 0.981818 
+\item DecisionTreeClassifier: 0.964394 
+\item SVM: 0.972727 
 \end{itemize}
 
 Based on the performance as shown in Figure (\ref{fig:Figure4}), kNN has been selected to use for this application. 
@@ -190,7 +208,8 @@ Classification is computed from a simple majority vote of the nearest neighbors 
 KNN falls in the supervised learning family of algorithms. Informally, this means that we are given a labelled dataset consisting of training observations (x,y) and would like to capture the relationship between x and y. More formally, our goal is to learn a function \[h:X ->Y\] so that given an unseen observations x, h(x) can confidently predict the corresponding output y.
 
 
-In the classification setting, the K-nearest neighbor algorithm essentially boils down to forming a majority vote between the K most similar instances to a given unseen observation. Similarity is defined according to a distance metric between two data points. A popular choice is the Euclidean distance given by:
+In the classification setting, the K-nearest neighbor algorithm essentially boils down to forming a majority vote between the K most similar instances to a given unseen observation.
+The number of neighbors for k-nearest neighbors (k) can be any value less than the number of rows from dataset. Looking at only a few neighbors makes the algorithm perform better but the less similar the neighbors, the worse the prediction will be. Similarity is defined according to a distance metric between two data points. A popular choice is the Euclidean distance given by:
 
 
 \[
@@ -200,6 +219,8 @@ d(x,x')=\sqrt{(x1-x1\rq)^2+(x2-x2\rq)^2+...+(xn-xn\rq)^2}
 
 But other measures can be more suitable for a given setting and include the Manhattan, Chebyshev and Hamming distance. 
 An alternate way of understanding KNN is by thinking about it as calculating a decision boundary (i.e. boundaries for more than 2 classes) which is then used to classify new points.
+
+Another characteristic of KNN is it is instance based learning algorithm. Means it doesn't explicitly learn a model. Instead, it chooses to memorize the training instances which are subsequently used as knowledge for the prediction phase.  It is also means the algorithm does not build a model until the time that a prediction is required. It is also lazy learning because it only does work at the last second. This has the benefit of only including data relevant to the unseen data, called a localized model. A disadvantage with lazy model is it can be computationally expensive to repeat the same or similar searches over larger training datasets. 
 
 In the application design, sci-kit open source python libraries are used for implementing the kNN algorithms. Scikit is built on NumPy, SciPy, and matplotlib. The k-neighbors classification in KNeighborsClassifier is the more commonly used of the two techniques. The optimal choice of the value k is highly data-dependent: in general a larger k suppresses the effects of noise, but makes the classification boundaries less distinct.
 
@@ -277,9 +298,14 @@ Once the results data set has been generated by the prediction algorithm, and th
 
 In this application all the unseen test data is classified and labeled in the result data file. However, in real world application, along with the dashboards a comprehensive alerting capabilities can be built. The application checks for out of range alert conditions on selected incoming report parameters, looking for warning or alarm conditions that are higher or lower than expected under normal operating conditions.
 
-\subsection{Application Script}
-All the application specific python modules are captured in a ipynb file which can be run from Jupyter notebook or Github. The location of the file is described in appendix b. This application specific data has been created/generated on AWS cloud database, which will be accessed during the run time by python notebook.
-
+\subsection{Application Code Development}
+Code required for this project is divided into two categories
+\begin{itemize}
+    \item Python Coding:
+          We used \textbf{Anacoda Navigator ver 1.6.9} \cite{Anaconda2017} installation on windows7 laptop which includes Jupyter notebook application for python coding. \textbf{Anacoda Navigator} also supports multiple installation and management of python environments using gui interface. The location of the Jypyter notebook file we developer for this project is mentioned in appendix b.
+    \item Pl/SQL Coding:
+          This application specific training/test sensor data has been created/generated on AWS cloud database using pl/sql coding which will be accessed during the run time by python notebook. We used \textbf{Orcle Sql Developer } \cite{SQLDeveloper2017} for pl/sql coding.
+\end{itemize}
 \subsection{Python - Oracle Interface}
 For this project we used python library called \textbf{cxOracle} \cite{OracleOTN} to enable access to Oracle Database. It can be installed easily using \textbf{pip} and it supports both Python 2 and 3. This library supports:
 \begin{itemize}
@@ -324,7 +350,7 @@ This requires in-depth domain specific analysis, in this case a detailed mathema
 \textbf{Domain specific modeling:} It is highly recommended to perform more and more domain-oriented feature vector analysis to meet the needs of predictive model evaluation for PHM applications. Domain-oriented approaches helpful and useful in evaluating classifier for applications. Generic evaluation methods could help developers in investigating overall performance of a model from the statistical viewpoint at the initial stage of model development. Domain-oriented approaches should be further used to evaluate the usefulness and business value \cite{Yang2014}.  
 
 \section{Conclusion}
-In this project, the problem statement around industrial rotating equipment maintenance is described and solution principle to address the same using PHM concept is defined, experimented and results are discussed. Since this application is developed to prove the only concept but not the complete solution a section with limitations and recommendations for real world system development is described. Overall, PHM application with kNN classifier algorithm and cross validation accuracy of 0.99 has been implemented, verified and results are analyzed for business decisions.
+In this project, the problem statement around industrial rotating equipment maintenance is described and solution principle to address the same using PHM concept is defined, experimented and results are discussed. Since this application is developed to prove the only concept but not the complete solution a section with limitations and recommendations for real world system development is described. Overall, PHM application with kNN classifier algorithm and cross validation accuracy of 0.99 percent has been implemented, verified and results are analyzed for business decisions.
 \begin{acks}
 
   The authors would like to thank professor Gregor von Laszewski and his team for providing \textit{LaTex} templates, assistance with the \textit{JabRef} tool and in helping to fix compile issues with latex and yaml formats.
