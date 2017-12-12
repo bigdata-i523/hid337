@@ -49,6 +49,7 @@
 * 11/18/17 Researching on Algorighms to use for final project
 * 11/23/17 Working on setups needed for final project
 * 11/24/17 - 12/03/17 - Working on the final project
+* 12/03/17 - 12/11/17 - Fixing Project issues as per teacher's feedback
 
 # Meetings
 
